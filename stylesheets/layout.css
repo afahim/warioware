@@ -16,23 +16,27 @@
 
 /* #Site Styles
 ================================================== */
-#warning-message { display: none; }
-@media only screen and (orientation:portrait){
+#warning-message { 
+	display: none; 
+}
+
+@media only screen and (orientation:portrait) {
+
 	#fence { display:none; }
 	#warning-message { display:block; }
 	#rotating-phone {
 		position: fixed;
 		top: 25%;
 		left: 30%;
-		animation:mymove 2s;
+		animation:turn-phone 2s;
 		animation-iteration-count:infinite;
 
 		/* Safari and Chrome */
-		-webkit-animation:mymove linear 2s;
+		-webkit-animation:turn-phone linear 2s;
 		-webkit-animation-iteration-count:infinite;
 	}
 
-	@keyframes mymove{
+	@keyframes turn-phone{
 		0% {
 			transform:rotate(0deg);
 			-ms-transform:rotate(0deg); /* IE 9 */
@@ -60,7 +64,7 @@
 		}
 	}
 
-	@-webkit-keyframes mymove /* Safari and Chrome */
+	@-webkit-keyframes turn-phone /* Safari and Chrome */
 	{
 		0% {
 			transform:rotate(0deg);
@@ -89,35 +93,34 @@
 		}
 	}
 }
+
 @media only screen and (orientation:landscape){
 	#portrait-warning { display:none; }
 }
 
 
-.fence-container {
+#fence-container {
 	width: 100%;
 	height: 100%;
 	position: fixed;
 	margin: 0 auto 40px;
 	border: 1px solid #CCC;
+	perspective: 800px;
 	-webkit-perspective: 800px;
 	-moz-perspective: 800px;
 	-o-perspective: 800px;
-	perspective: 800px;
 }
 
 #card {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	-webkit-transition: -webkit-transform 0.3s;
-	-moz-transition: -moz-transform 0.3s;
-	-o-transition: -o-transform 0.3s;
-	transition: transform 0.3s;
+
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	-o-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+
 	-webkit-transform-origin: bottom center;
 	-moz-transform-origin: bottom center;
 	-o-transform-origin: bottom center;
@@ -125,13 +128,129 @@
 }
 
 #card.flipped {
-	-webkit-transform:  rotateX( +90deg );
-	-moz-transform:  rotateX( +90deg );
-	-o-transform:  rotateX( +90deg );
-	transform:  rotateX( +90deg );
+	animation:knock-over 1s;
+	-webkit-animation:knock-over linear 1s;
+	-webkit-animation-fill-mode: forwards;
 }
 
-#card figure {
+#fence-container.lateral-move {
+	animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
+	-webkit-animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@keyframes pan-in {
+	from {
+		perspective: 800px;
+		-webkit-perspective: 800px;
+		-moz-perspective: 800px;
+		-o-perspective: 800px;
+	}
+	to {
+		perspective: 21500px;
+		-webkit-perspective: 21500px;
+		-moz-perspective: 21500px;
+		-o-perspective: 21500px;
+	}
+}
+
+@-webkit-keyframes pan-in /* Safari and Chrome */ {
+	from {
+		perspective: 800px;
+		-webkit-perspective: 800px;
+		-moz-perspective: 800px;
+		-o-perspective: 800px;
+	}
+	to {
+		perspective: 21500px;
+		-webkit-perspective: 21500px;
+		-moz-perspective: 21500px;
+		-o-perspective: 21500px;
+	}
+}
+
+@keyframes knock-over {
+	0% {
+		-webkit-transform:  rotateX( 0deg );
+		-moz-transform:  rotateX( 0deg );
+		-o-transform:  rotateX( 0deg );
+		transform:  rotateX( 0deg );
+	}
+	50% {
+		-webkit-transform:  rotateX( +90deg );
+		-moz-transform:  rotateX( +90deg );
+		-o-transform:  rotateX( +90deg );
+		transform:  rotateX( +90deg );
+	}
+	65% {
+		-webkit-transform:  rotateX( +80deg );
+		-moz-transform:  rotateX( +80deg );
+		-o-transform:  rotateX( +80deg );
+		transform:  rotateX( +80deg );		
+	}
+	80% {
+		-webkit-transform:  rotateX( +90deg );
+		-moz-transform:  rotateX( +90deg );
+		-o-transform:  rotateX( +90deg );
+		transform:  rotateX( +90deg );
+	}
+	90% {
+		-webkit-transform:  rotateX( +85deg );
+		-moz-transform:  rotateX( +85deg );
+		-o-transform:  rotateX( +85deg );
+		transform:  rotateX( +85deg );
+	}
+	100% {
+		-webkit-transform:  rotateX( 90deg );
+		-moz-transform:  rotateX( 90deg );
+		-o-transform:  rotateX( 90deg );
+		transform:  rotateX( 90deg );
+	}
+
+}
+
+@-webkit-keyframes knock-over /* Safari and Chrome */
+{
+	0% {
+		-webkit-transform:  rotateX( 0deg );
+		-moz-transform:  rotateX( 0deg );
+		-o-transform:  rotateX( 0deg );
+		transform:  rotateX( 0deg );
+	}
+	50% {
+		-webkit-transform:  rotateX( +90deg );
+		-moz-transform:  rotateX( +90deg );
+		-o-transform:  rotateX( +90deg );
+		transform:  rotateX( +90deg );
+	}
+	65% {
+		-webkit-transform:  rotateX( +80deg );
+		-moz-transform:  rotateX( +80deg );
+		-o-transform:  rotateX( +80deg );
+		transform:  rotateX( +80deg );		
+	}
+	80% {
+		-webkit-transform:  rotateX( +90deg );
+		-moz-transform:  rotateX( +90deg );
+		-o-transform:  rotateX( +90deg );
+		transform:  rotateX( +90deg );
+	}
+	90% {
+		-webkit-transform:  rotateX( +85deg );
+		-moz-transform:  rotateX( +85deg );
+		-o-transform:  rotateX( +85deg );
+		transform:  rotateX( +85deg );
+	}
+	100% {
+		-webkit-transform:  rotateX( 90deg );
+		-moz-transform:  rotateX( 90deg );
+		-o-transform:  rotateX( 90deg );
+		transform:  rotateX( 90deg );
+	}
+}
+
+
+figure {
 	display: block;
 	height: 100%;
 	width: 100%;
@@ -139,7 +258,7 @@
 	color: white;
 	text-align: center;
 	font-weight: bold;
-	font-size: 140px;
+	font-size: 4em;
 	position: absolute;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
@@ -147,9 +266,81 @@
 	backface-visibility: hidden;
 }
 
-#card .front {
+#card .front-card {
 	background: red;
 }
+
+#card .side-card {
+	background: #D4D4D4;
+}
+
+#top-card {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #9B9B9B;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-transform-origin: top center;
+	-moz-transform-origin: top center;
+	-o-transform-origin: top center;
+	transform-origin: top center;
+
+	-webkit-transform:  rotateX( -90deg );
+	-moz-transform:  rotateX( -90deg );
+	-o-transform:  rotateX( -90deg );
+	transform:  rotateX( -90deg );
+}
+
+#left-card {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	background: #D4D4D4;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+
+	-webkit-transform:  rotateY( +90deg );
+	-moz-transform:  rotateY( +90deg );
+	-o-transform:  rotateY( +90deg );
+	transform:  rotateY( +90deg );
+}
+
+#right-card {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	background: #D4D4D4;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-transform-origin: right center;
+	-moz-transform-origin: right center;
+	-o-transform-origin: right center;
+	transform-origin: right center;
+
+	-webkit-transform:  rotateY( -90deg );
+	-moz-transform:  rotateY( -90deg );
+	-o-transform:  rotateY( -90deg );
+	transform:  rotateY( -90deg );
+}
+
 
 
 /* #Page Styles
