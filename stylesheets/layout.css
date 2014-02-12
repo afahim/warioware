@@ -131,12 +131,14 @@
 	animation:knock-over 1s;
 	-webkit-animation:knock-over linear 1s;
 	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 }
 
 #fence-container.lateral-move {
 	animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
 	-webkit-animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
 	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 }
 
 @keyframes pan-in {
@@ -335,6 +337,11 @@ figure {
 	-moz-transform:  rotateY( -90deg );
 	-o-transform:  rotateY( -90deg );
 	transform:  rotateY( -90deg );
+}
+
+#game-instance {
+	position: absolute;
+	left: 100px;
 }
 
 

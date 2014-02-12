@@ -12,12 +12,19 @@ $( document ).ready(function() {
 
 	$("#left-card").height($(window).width());
 	$("#left-card").width($(window).height());
-	
-	var card = document.getElementById('fence-container');
 
-	document.getElementById('fence-container').addEventListener( 'click', function(){
-		card.className = card.className + " lateral-move";
+	var card = document.getElementById('card');
+	var fenceContainer = document.getElementById('fence-container');
+
+	document.getElementById('game-instance').addEventListener( 'click', function(){
+		console.log("game instance");
+		fenceContainer.className = card.className + " lateral-move";
 	}, false);
+
+	document.getElementById('card').addEventListener( 'click', function(){
+		card.className = card.className + " flipped";
+	}, false);
+
 });
 
 window.onresize = function(event) {
