@@ -297,8 +297,6 @@ figure {
 }
 
 #left-card {
-	width: 50%;
-	height: 100%;
 	position: absolute;
 	background: #D4D4D4;
 
@@ -319,8 +317,6 @@ figure {
 }
 
 #right-card {
-	width: 50%;
-	height: 100%;
 	position: absolute;
 	right: 0px;
 	background: #D4D4D4;
