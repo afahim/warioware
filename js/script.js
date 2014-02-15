@@ -1,36 +1,55 @@
-/*var init = function() {
-  var card = document.getElementById('card');
-  
-  document.getElementById('fence').addEventListener( 'click', function(){
-    card.className = card.className + " lateral-move";
-  }, false);
-};*/
-
 $( document ).ready(function() {
-	$("#right-card").height($(window).width());
-	$("#right-card").width($(window).height());
-
-	$("#left-card").height($(window).width());
-	$("#left-card").width($(window).height());
-
+	invertWidthHeight();
 	var card = document.getElementById('card');
-	var fenceContainer = document.getElementById('fence-container');
+
+	var clicked = false;
 
 	document.getElementById('game-instance').addEventListener( 'click', function(){
-		console.log("game instance");
-		fenceContainer.className = card.className + " lateral-move";
+		var fenceContainer = document.getElementById('fence-container');
+		if (clicked == false) {
+			fenceContainer.className = "lateral-move";
+			clicked = true;
+		} else {
+			fenceContainer.className = "lateral-back";
+			clicked = false;
+		}
 	}, false);
+
 
 	document.getElementById('card').addEventListener( 'click', function(){
 		card.className = card.className + " flipped";
 	}, false);
 
+	var doorClicked = false;
+
+	document.getElementById('top-card').addEventListener('click', function(){
+		if (doorClicked == false) {
+			document.getElementById('left-door').className = "slided";
+			document.getElementById('right-door').className = "slided";
+			doorClicked = true;
+		} else {
+			document.getElementById('left-door').className = "not-slided";
+			document.getElementById('right-door').className = "not-slided";
+			doorClicked = false;
+		}
+	})
+
 });
 
 window.onresize = function(event) {
+	invertWidthHeight();
+};
+
+function invertWidthHeight () {
 	$("#right-card").height($(window).width());
 	$("#right-card").width($(window).height());
 
 	$("#left-card").height($(window).width());
 	$("#left-card").width($(window).height());
-};
+
+	$("#left-door").height($(window).width());
+	$("#left-door").width($(window).height());
+
+	$("#right-door").height($(window).width());
+	$("#right-door").width($(window).height());
+}
