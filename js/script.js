@@ -1,5 +1,14 @@
+var isOrientationSupported = function() {
+	if (window.DeviceOrientationEvent) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 $( document ).ready(function() {
 	invertWidthHeight();
+
 	var card = document.getElementById('card');
 
 	var clicked = false;
@@ -20,20 +29,20 @@ $( document ).ready(function() {
 		card.className = card.className + " flipped";
 	}, false);
 
-	var doorClicked = false;
-
 	document.getElementById('top-card').addEventListener('click', function(){
-		if (doorClicked == false) {
-			document.getElementById('left-door').className = "slided";
-			document.getElementById('right-door').className = "slided";
-			doorClicked = true;
-		} else {
-			document.getElementById('left-door').className = "not-slided";
-			document.getElementById('right-door').className = "not-slided";
-			doorClicked = false;
-		}
+		$(".door-holder").removeClass("not-slided");
+		$(".door-holder").addClass("slided");
 	})
 
+	document.getElementById('left-door').addEventListener('click', function(){
+		$(".door-holder").removeClass("slided");
+		$(".door-holder").addClass("not-slided");
+	})
+
+	document.getElementById('right-door').addEventListener('click', function(){
+		$(".door-holder").removeClass("slided");
+		$(".door-holder").addClass("not-slided");
+	})
 });
 
 window.onresize = function(event) {
@@ -47,9 +56,9 @@ function invertWidthHeight () {
 	$("#left-card").height($(window).width());
 	$("#left-card").width($(window).height());
 
-	$("#left-door").height($(window).width());
-	$("#left-door").width($(window).height());
+	//$("#left-door").height($(window).width());
+	//$("#left-door").width($(window).height());
 
-	$("#right-door").height($(window).width());
-	$("#right-door").width($(window).height());
+	//$("#right-door").height($(window).width());
+	//$("#right-door").width($(window).height());
 }
