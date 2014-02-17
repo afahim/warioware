@@ -17,6 +17,10 @@
 /* #Site Styles
 ================================================== */
 
+#game-html {
+	hidden: true;
+}
+
 #warning-message { 
 	display: none; 
 }
@@ -380,6 +384,8 @@ figure {
 
 #game-instance {
 	position: absolute;
+	height: 100%;
+	width: 100%
 }
 
 .game-door {

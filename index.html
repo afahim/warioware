@@ -24,8 +24,9 @@
 	<!-- Javascript
 	================================================== -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<!--script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script-->
 	<script src="./js/script.js"></script>
+
+	<script type="text/javascript" src="./js/Box2dWeb-2.1.a.3.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,11 +49,16 @@
 
 	<div class="container">
 		<div id="fence">
-			<section id="fence-container">
-				<div id="game-instance">	
-					<img src="./images/phone.png" style="position:absolute;left:500px">
-				</div>
 
+			<div id="game-instance">
+				<canvas id="canvas" width="1163" height="640" style="background-color:#333333;" ></canvas>
+				<div id="gas-pedal"></div>
+				<link rel="stylesheet" href="stylesheets/game1.css">
+				<script type="text/javascript" src="./js/Box2dWeb-2.1.a.3.js"></script>
+				<script src="./js/game1.js"></script>
+			</div>
+
+			<section id="fence-container">
 				<div id="left-door" class="door-holder">
 					<figure class="game-door"></figure>
 				</div>
@@ -75,7 +81,6 @@
 			</section>
 		</div>
 
-
 		<div id="portrait-warning">
 			<img id="rotating-phone" src="./images/phone.png"></img>
 		</div>
@@ -86,4 +91,5 @@
 <!-- End Document
 	================================================== -->
 </body>
+
 </html>

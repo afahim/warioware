@@ -1,20 +1,15 @@
-var isOrientationSupported = function() {
-	if (window.DeviceOrientationEvent) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
 $( document ).ready(function() {
+
+	window.scrollTo( 0, 1 );
+
 	invertWidthHeight();
 
 	var card = document.getElementById('card');
 
 	var clicked = false;
+	var fenceContainer = document.getElementById('fence-container');
 
-	document.getElementById('game-instance').addEventListener( 'click', function(){
-		var fenceContainer = document.getElementById('fence-container');
+	document.getElementById('right-card').addEventListener( 'click', function(){
 		if (clicked == false) {
 			fenceContainer.className = "lateral-move";
 			clicked = true;
@@ -32,6 +27,7 @@ $( document ).ready(function() {
 	document.getElementById('top-card').addEventListener('click', function(){
 		$(".door-holder").removeClass("not-slided");
 		$(".door-holder").addClass("slided");
+		console.log("hidden");
 	})
 
 	document.getElementById('left-door').addEventListener('click', function(){
@@ -43,11 +39,18 @@ $( document ).ready(function() {
 		$(".door-holder").removeClass("slided");
 		$(".door-holder").addClass("not-slided");
 	})
+
+	fenceContainer.addEventListener("webkitAnimationEnd", function(e){
+		if(e.animationName === "pan-in") {
+			$("#fence-container").hide();
+		}
+	}, false);
+
 });
 
-window.onresize = function(event) {
+$( window ).resize(function() {
 	invertWidthHeight();
-};
+});
 
 function invertWidthHeight () {
 	$("#right-card").height($(window).width());
@@ -55,10 +58,4 @@ function invertWidthHeight () {
 
 	$("#left-card").height($(window).width());
 	$("#left-card").width($(window).height());
-
-	//$("#left-door").height($(window).width());
-	//$("#left-door").width($(window).height());
-
-	//$("#right-door").height($(window).width());
-	//$("#right-door").width($(window).height());
 }
