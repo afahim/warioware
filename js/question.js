@@ -1,16 +1,12 @@
-$(document).ready(function() {
-	
-	
-	//(button width/span width) * span font-size
-	
-	// object constructor for new questions
-	function Question(id, text, correctAnswers, incorrectAnswers) {
-		this.id = id;
-		this.text = text;
-		this.correctAnswers = correctAnswers;
-		this.incorrectAnswers = incorrectAnswers;
-	}
-	
+// object constructor for new questions
+function Question(id, text, correctAnswers, incorrectAnswers) {
+	this.id = id;
+	this.text = text;
+	this.correctAnswers = correctAnswers;
+	this.incorrectAnswers = incorrectAnswers;
+}
+
+function askQuestion() {
 	// Question 1 Data
 	var text1 = 'I ___ learning.';
 	var correctAns1 = ['am'];
@@ -27,14 +23,13 @@ $(document).ready(function() {
 	var incorrectAns1 = ['9', '0', '11'];
 	var question3 = new Question(1, text1, correctAns1, incorrectAns1);
 	var allQuestions = [question1, question2, question3];
-	
-	
-	
+
+
 	// Randomly choose a question
 	var randIndex = Math.floor(Math.random() *  allQuestions.length);
 	var question = allQuestions[randIndex];
 	document.getElementById("questionPrompt").innerHTML = question.text;
-	
+
 	// Randomly choose which button will hold the correct answer
 	var correctIdx = Math.floor((Math.random()*4)+1);
 	j = 0;
@@ -49,7 +44,7 @@ $(document).ready(function() {
 			j += 1;
 		}
 	}
-	
+
 	// Check whether the button pressed was the correct or incorrect answer
 	$('#ans1').click(function() {
 		if (correctIdx == 1) {
@@ -83,7 +78,8 @@ $(document).ready(function() {
 			gameFinished();
 		}	
 	});
-	
+
 	var pctShrink = $('#ans1').width() / $('#ans1 div').width();
 	console.log(pctShrink);
-});
+
+}

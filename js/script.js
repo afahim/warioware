@@ -1,4 +1,4 @@
-var nGames = 3;
+var nGames = 2;
 var fenceContainer;
 
 $( document ).ready(function() {
@@ -17,6 +17,9 @@ function nextGame() {
 	$("#game-instance").html( $("#game" + gameIndex).html() );
 	if (gameIndex == 0) {
 		startGame1();
+	}
+	else if (gameIndex == 1) { //if a question was called
+		askQuestion();
 	}
 }
 
