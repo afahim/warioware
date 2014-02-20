@@ -1,9 +1,9 @@
-var nGames = 2;
+var nGames = 3;
 var fenceContainer;
 
 //Functions
 var invertWidthHeight, setupGameplayHandlers, nextGame, startGame1,
-  askQuestion, startGame2;
+askQuestion, startGame2;
 
 $(document).ready(function () {
   fenceContainer = document.getElementById('fence-container');
@@ -11,13 +11,10 @@ $(document).ready(function () {
   //inverting 
   invertWidthHeight();
   setupGameplayHandlers();
-
-  //Choosing random game from list of choices and displaying to user
-  nextGame();
 });
 
 function nextGame() {
-  var gameIndex = Math.floor(Math.random() * nGames);
+    var gameIndex = Math.floor(Math.random() * nGames);
   $("#game-instance").html($("#game" + gameIndex).html());
   if (gameIndex === 0) {
     startGame1();
@@ -25,7 +22,7 @@ function nextGame() {
     askQuestion();
   } else if (gameIndex === 2) { //if a question was called
     startGame2();
-  }
+}
 }
 
 function gameFinished() {
@@ -52,23 +49,25 @@ function setupGameplayHandlers() {
     fenceContainer.addEventListener("webkitAnimationEnd", function(e){
       if(e.animationName === "pan-in") {
           $("#fence-container").css('visibility', 'hidden');
-        }
-        else if (e.animationName === "knock-over") {
+      }
+      else if (e.animationName === "knock-over") {
           fenceContainer.className = "lateral-move";
+            //Choosing random game from list of choices and displaying to user
+            nextGame();
         }
         else if (e.animationName === "pan-out") {
           $(".door-holder").removeClass("not-slided");
           $(".door-holder").addClass("slided");
-        }
-        else if (e.animationName === "slidein-left-door") {
+      }
+      else if (e.animationName === "slidein-left-door") {
           $(".door-holder").removeClass("slided");
           $(".door-holder").addClass("not-slided");
-        nextGame();
-        }
-        else if (e.animationName === "slideout-left-door") {
+          nextGame();
+      }
+      else if (e.animationName === "slideout-left-door") {
           fenceContainer.className = "lateral-move";
-        }
-    }, false);
+      }
+  }, false);
 
     var clicked = false;
 
@@ -76,11 +75,11 @@ function setupGameplayHandlers() {
         if (clicked === false) {
           fenceContainer.className = "lateral-move";
           clicked = true;
-        } else {
+      } else {
           fenceContainer.className = "lateral-back";
           clicked = false;
-        }
-    }, false);
+      }
+  }, false);
 
     document.getElementById('card').addEventListener( 'click', function(){
         card.className = card.className + " flipped";

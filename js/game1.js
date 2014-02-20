@@ -1,9 +1,5 @@
 function startGame1() {
 
-   $( window ).resize(function() {
-
-   });
-
    ////////////////////////
    // Creating the world //
    ////////////////////////

@@ -1,4 +1,12 @@
+var isGameFinished = false;
+var moveGoodInterval, moveBadInterval, chkWinInterval;
+
+function refreshStyle(stylesheet) {
+    $("#game2style").attr('href', stylesheet);
+}
+
 function startGame2() {
+    refreshStyle('stylesheets/game2.css');
     var engine = document.createElement('audio');
     engine.setAttribute('src', 'sounds/engine.wav');        
     var count = 3; // This is the initial countdown before the race
@@ -10,7 +18,7 @@ function startGame2() {
         var gasPedalPushedRate = 5;    
         var gasPedalNotPushedRate = 2; 
         
-        $('#gas').mousedown(function() {
+        $('body').mousedown(function() {
             $('#player1').clearQueue();
             engine.play();  
             gasPedalPushed = true;
@@ -70,6 +78,13 @@ function startGame2() {
             var winpos = parseInt($('#finish').css('left'));
             // If either car's position is past the finish line
             if ((p1pos > winpos) || (p2pos > winpos)) {
+                clearInterval(moveGoodInterval);
+                clearInterval(moveBadInterval);
+                clearInterval(chkWinInterval);
+                $('#player1').clearQueue();
+                $('#player2').clearQueue();
+                //$('#player1').css('z-index',0)
+                //$('#player2').css('z-index',0)
                 // The player wins.
                 if (p1pos > p2pos) {
                     gameFinished();
@@ -81,9 +96,9 @@ function startGame2() {
             }
         }
         // Update timings for the different functions, in milliseconds
-        setInterval(moveGoodguy, 5);
-        setInterval(moveBadguy, 5);
-        setInterval(checkWin, 100);
+        moveGoodInterval = setInterval(moveGoodguy, 5);
+        moveBadInterval = setInterval(moveBadguy, 5);
+        chkWinInterval = setInterval(checkWin, 100);
     }
 
     // This function counts down in order to begin the race

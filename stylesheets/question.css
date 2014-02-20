@@ -38,24 +38,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	top:60%;
 	left:45%;
 }
-#gameOver {
-	position: absolute;
-	top: 0px;
-	left: 175px;
-	width: 100px;
-	height: 68px;
-	background-image: url("img/crossbones.jpg");
-	display: none;
-}
-#win {
-	position: absolute;
-	top: 0px;
-	left: 175px;
-	width: 100px;
-	height: 81px;
-	background-image: url("img/win.jpg");
-	display: none;
-}
 #levelBackground {
 	width: 100% !important;
 	height: 100% !important;

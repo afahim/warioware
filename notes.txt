@@ -12,5 +12,4 @@ Sebrand's
 
 Afnan's
 =======
-Remove base.css dependencies
-
+Hacking around css reload for car racing game. Make sure there is a proper work around
