@@ -9,9 +9,16 @@ $( document ).ready(function() {
 	setupGameplayHandlers();
 
 	//Choosing random game from list of choices and displaying to user
+	nextGame();
+});
+
+function nextGame() {
 	var gameIndex = Math.floor(Math.random() * nGames);
 	$("#game-instance").html( $("#game" + gameIndex).html() );
-});
+	if (gameIndex == 0) {
+		startGame1();
+	}
+}
 
 function gameFinished() {
 	//$("#fence-container").show();
@@ -46,8 +53,7 @@ function setupGameplayHandlers() {
 			$(".door-holder").addClass("slided");
 		}
 		else if (e.animationName === "slidein-left-door") {
-			var gameIndex = Math.floor(Math.random() * nGames);
-			$("#game-instance").html( $("#game" + gameIndex).html() );
+			nextGame();
 			$(".door-holder").removeClass("slided");
 			$(".door-holder").addClass("not-slided");
 		}
