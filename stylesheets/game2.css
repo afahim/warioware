@@ -83,8 +83,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	display: none;
 }
 #levelBackground2 {
-	width: 1024px;
-	height: 480px;
 	z-index: -1;
 	background-color: DarkOliveGreen;  	
 }
