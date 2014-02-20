@@ -7,29 +7,17 @@ $( document ).ready(function() {
 
 	//inverting 
 	invertWidthHeight();
-	setupTestingHandlers();
+	setupGameplayHandlers();
 
 	//Choosing random game from list of choices and displaying to user
 	var gameIndex = Math.floor(Math.random() * nGames);
-	console.log("game index is " + gameIndex);
-	console.log($("#game" + gameIndex).html());
 	$("#game-instance").html( $("#game" + gameIndex).html() );
 });
 
 function gameFinished() {
-	$("#fence-container").css("display", "block");
-	//fenceContainer.className = "lateral-move";
-
-	/*$(".door-holder").removeClass("not-slided");
-	$(".door-holder").addClass("slided");
-
-	var gameIndex = Math.floor(Math.random() * nGames);
-	$("#game-instance").html() = $("#game" + gameIndex).html();
-
-	$(".door-holder").removeClass("slided");
-	$(".door-holder").addClass("not-slided");
-
-	fenceContainer.className = "lateral-back";*/
+	//$("#fence-container").show();
+	$("#fence-container").css('visibility', '');
+	fenceContainer.className = "lateral-back";
 }
 
 $( window ).resize(function() {
@@ -44,20 +32,35 @@ function invertWidthHeight () {
 	$("#left-card").width($(window).height());
 }
 
-function setupTestingHandlers() {
+function setupGameplayHandlers() {
 	var card = document.getElementById('card');
 
 	fenceContainer.addEventListener("webkitAnimationEnd", function(e){
 		if(e.animationName === "pan-in") {
-			$("#fence-container").css('display', 'hidden');
-			console.log("hidden is " + $("#fence-container").css('display'));
+			$("#fence-container").css('visibility', 'hidden');
+		}
+		else if (e.animationName === "knock-over") {
+			fenceContainer.className = "lateral-move";
+		}
+		else if (e.animationName === "pan-out") {
+			$(".door-holder").removeClass("not-slided");
+			$(".door-holder").addClass("slided");
+		}
+		else if (e.animationName === "slidein-left-door") {
+			var gameIndex = Math.floor(Math.random() * nGames);
+			$("#game-instance").html( $("#game" + gameIndex).html() );
+			$(".door-holder").removeClass("slided");
+			$(".door-holder").addClass("not-slided");
+		}
+		else if (e.animationName === "slideout-left-door") {
+
+			fenceContainer.className = "lateral-move";
 		}
 	}, false);
 
 	var clicked = false;
 
 	document.getElementById('right-card').addEventListener('click', function(){
-		console.log("right carded");
 		if (clicked == false) {
 			fenceContainer.className = "lateral-move";
 			clicked = true;
@@ -74,7 +77,6 @@ function setupTestingHandlers() {
 	document.getElementById('top-card').addEventListener('click', function(){
 		$(".door-holder").removeClass("not-slided");
 		$(".door-holder").addClass("slided");
-		console.log("hidden");
 	})
 
 	document.getElementById('left-door').addEventListener('click', function(){
