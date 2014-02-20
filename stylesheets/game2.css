@@ -1,0 +1,90 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+#player1 {
+	top:50px;
+	left:15px;
+	width: 200px;
+	height: 119px;
+	z-index: 1;
+	background-image: url("../images/player1.png");
+	/*background-position: 256px 381px;*/
+	position: absolute;
+}
+#player2 {
+	top:200px;
+	left:15px;
+	width: 200px;
+	height: 111px;
+	z-index: 1;
+	background-image: url("../images/player2.png");
+	/*background-position: 351px 124px;*/
+	position: absolute;
+}
+#finish {
+	position: absolute;
+	top: 0px;
+	left: 950px;
+	width: 100px;
+	height: 480px;
+	z-index: 0;
+	background-image: url("../images/checkerboard.jpg");
+}
+#start {
+	position: absolute;
+	left: 200px;
+	top: 0px;
+	height: 480px;
+	z-index: 0;
+	border-left: 5px solid yellow;
+}
+#gas {
+	position: absolute;
+	left: 900px;
+	top: 375px;
+	height: 75px;
+	width: 75px;
+	background-color: red;
+	border: 2px solid black;
+}
+#startTime {
+	position: absolute;
+	top: 130px;
+	left: 512px;
+	font-size:10em;
+	font-weight:bold;
+	z-index: 0;
+	color: yellow;
+	padding: 10px 15px;
+	border:2px solid black;
+	border-radius:10px;
+}
+#lose {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+	width: 100px;
+	height: 68px;
+	background-image: url("../images/crossbones.jpg");
+	display: none;
+}
+#tryAgain {
+	position: absolute;
+	top: 80px;
+	left: 185px;
+	display: none;
+}
+#win {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+	width: 100px;
+	height: 81px;
+	background-image: url("../images/win.jpg");
+	display: none;
+}
+#levelBackground2 {
+	width: 1024px;
+	height: 480px;
+	z-index: -1;
+	background-color: DarkOliveGreen;  	
+}

@@ -15,11 +15,14 @@ $( document ).ready(function() {
 function nextGame() {
 	var gameIndex = Math.floor(Math.random() * nGames);
 	$("#game-instance").html( $("#game" + gameIndex).html() );
-	if (gameIndex == 0) {
+	if (gameIndex === 0) {
 		startGame1();
 	}
 	else if (gameIndex == 1) { //if a question was called
 		askQuestion();
+	}
+	else if (gameIndex == 2) { //if a question was called
+		startGame2();
 	}
 }
 
@@ -69,7 +72,7 @@ function setupGameplayHandlers() {
 	var clicked = false;
 
 	document.getElementById('right-card').addEventListener('click', function(){
-		if (clicked == false) {
+		if (clicked === false) {
 			fenceContainer.className = "lateral-move";
 			clicked = true;
 		} else {
@@ -85,15 +88,15 @@ function setupGameplayHandlers() {
 	document.getElementById('top-card').addEventListener('click', function(){
 		$(".door-holder").removeClass("not-slided");
 		$(".door-holder").addClass("slided");
-	})
+	});
 
 	document.getElementById('left-door').addEventListener('click', function(){
 		$(".door-holder").removeClass("slided");
 		$(".door-holder").addClass("not-slided");
-	})
+	});
 
 	document.getElementById('right-door').addEventListener('click', function(){
 		$(".door-holder").removeClass("slided");
 		$(".door-holder").addClass("not-slided");
-	})	
+	});
 }

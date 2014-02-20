@@ -334,7 +334,6 @@ figure {
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 4em;
   position: absolute;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -344,6 +343,9 @@ figure {
 
 #card .front-card {
   background: red;
+  padding-top: 20% !important;
+  font-family: Quicksand !important;
+  font-size: 4em !important;
 }
 
 #card .side-card {
