@@ -51,11 +51,6 @@
 		<div id="fence">
 
 			<div id="game-instance">
-				<canvas id="canvas" width="1163" height="640" style="background-color:#333333;" ></canvas>
-				<div id="gas-pedal"></div>
-				<link rel="stylesheet" href="stylesheets/game1.css">
-				<script type="text/javascript" src="./js/Box2dWeb-2.1.a.3.js"></script>
-				<script src="./js/game1.js"></script>
 			</div>
 
 			<section id="fence-container">
@@ -86,6 +81,22 @@
 		</div>
 
 	</div><!-- container -->
+
+	<div id="all-games">
+		<div id="game0">
+			<canvas id="canvas" width="1163" height="640" style="background-color:#333333;" ></canvas>
+			<div id="gas-pedal"></div>
+			<link rel="stylesheet" href="stylesheets/game1.css">
+			<script type="text/javascript" src="./js/Box2dWeb-2.1.a.3.js"></script>
+			<script src="./js/game1.js"></script>
+		</div>
+		<div id="game1" class="question-screen">
+			<div class="question" onclick="gameFinished();">The girl took good _____ of the dog</div>
+		</div>
+		<div id="game2">
+			<div class="question">The boy took bad _____ of the dog</div>
+		</div>
+	</div>
 
 
 <!-- End Document

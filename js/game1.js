@@ -1,12 +1,9 @@
 window.onload = function() {
-   $("#canvas").height($(window).height());
-   $("#canvas").width($(window).width());
    init();
 };
 
 $( window ).resize(function() {
-   $("#canvas").height($(window).height());
-   $("#canvas").width($(window).width());
+
 });
 
 function init() {
@@ -117,7 +114,7 @@ function init() {
 
    // Connecting the chassis to its shocks
    backShockJoint = buildPrismaticJoint(world, chassis,
-    backShock, new b2Vec2(14,10.5), new b2Vec2(0, -1));
+     backShock, new b2Vec2(14,10.5), new b2Vec2(0, -1));
    frontShockJoint = buildPrismaticJoint(world, chassis,
       frontShock, new b2Vec2(16, 10.5), new b2Vec2(0,-1));
 
@@ -137,10 +134,10 @@ function init() {
    fixTri.restitution = .5;
 
    fixTri.shape.SetAsArray([
-     new b2Vec2(-9, 0),
-     new b2Vec2(0, -3),
-     new b2Vec2(0, 0)],3
-     );
+    new b2Vec2(-9, 0),
+    new b2Vec2(0, -3),
+    new b2Vec2(0, 0)],3
+    );
 
    var bodyTri = new b2BodyDef;
    bodyTri.type = b2Body.b2_staticBody;    
@@ -178,8 +175,8 @@ function init() {
 
    $('#gas-pedal').mousedown(function(){
       console.log("gaspedal");
-      frontWheel.angularVelocity += .8;
-      backWheel.angularVelocity += .8; 
+      frontWheel.angularVelocity += 6;
+      backWheel.angularVelocity += 6; 
       if (frontWheel.angularVelocity < 0) {
          frontWheel.angularVelocity /= 4;
       }
@@ -192,8 +189,8 @@ function init() {
       if (backWheel.angularVelocity > 40) {
          backWheel.angularVelocity = 40;
       }
-      frontWheel.SetAngularVelocity(frontWheel.angularVelocity);
-      backWheel.SetAngularVelocity(backWheel.angularVelocity);
+      frontWheel.SetAngularVelocity(frontWheel.angularVelocity * 4);
+      backWheel.SetAngularVelocity(backWheel.angularVelocity * 4);
       console.log("d");
    });
 

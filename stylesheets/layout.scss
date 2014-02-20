@@ -16,9 +16,12 @@
 
 /* #Site Styles
 ================================================== */
+.question-screen {
+	background : red;
+}
 
-#game-html {
-	hidden: true;
+#all-games {
+	display: none;
 }
 
 #warning-message { 
@@ -26,7 +29,6 @@
 }
 
 @media only screen and (orientation:portrait) {
-
 	#fence { display:none; }
 	#warning-message { display:block; }
 	#rotating-phone {
