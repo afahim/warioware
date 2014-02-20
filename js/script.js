@@ -1,7 +1,6 @@
 var nGames = 3;
 var fenceContainer;
 
-
 $( document ).ready(function() {
 	fenceContainer = document.getElementById('fence-container');
 

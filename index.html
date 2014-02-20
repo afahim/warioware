@@ -18,7 +18,7 @@
 
 	<!-- CSS
 	================================================== -->
-	<link rel="stylesheet" href="stylesheets/base.css">
+	<!--link rel="stylesheet" href="stylesheets/base.css"-->
 	<link rel="stylesheet" href="stylesheets/layout.css">
 
 	<!-- Javascript
@@ -83,13 +83,29 @@
 
 	<div id="all-games">
 		<div id="game0">
+
 			<canvas id="canvas" width="1163" height="640" style="background-color:#333333;" ></canvas>
 			<div id="gas-pedal"></div>
 			<link rel="stylesheet" href="stylesheets/game1.css">
 			<script src="./js/game1.js"></script>
+
 		</div>
 		<div id="game1" class="question-screen">
-			<div class="question" onclick="gameFinished();">The girl took good _____ of the dog</div>
+
+			<link rel="stylesheet" type="text/css" href="stylesheets/question.css"/>
+			<script type='text/javascript' src='js/question.js'></script>
+			<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+			<div id="levelBackground">
+				<div id="questionPrompt"></div>
+				<button class="ans" id="ans1"></button>
+				<button class="ans" id="ans2"></button> 
+				<button class="ans" id="ans3"></button> 
+				<button class="ans" id="ans4"></button> 
+				<!-- End Conditions -->
+				<div id="win"></div>
+				<div id="gameOver"></div>
+			</div>
+
 		</div>
 		<div id="game2">
 			<div class="question" onclick="gameFinished();">The boy took bad _____ of the dog</div>

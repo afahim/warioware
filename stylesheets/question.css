@@ -1,0 +1,64 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+#questionPrompt {
+	top:25px;
+	left:30px;
+	font-family: Quicksand, sans-serif;
+	font-size: 4em;
+	border-width: 5px;
+	border-color: black;
+	position: absolute;
+}
+.ans {
+	font-size: 4em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 10px;
+	border-style: none;
+	background-color: #9a3923;
+	box-shadow: 1px 1px 3px #990000;
+	width: 300px;
+	height: 100px;
+
+	position: absolute;
+}
+
+#ans1 {
+	top:150px;
+	left:30px;
+}
+#ans2 {
+	top:150px;
+	left:450px;
+}
+#ans3 {
+	top:270px;
+	left:30px;
+}
+#ans4 {
+	top:270px;
+	left:450px;
+}
+#gameOver {
+	position: absolute;
+	top: 0px;
+	left: 175px;
+	width: 100px;
+	height: 68px;
+	background-image: url("img/crossbones.jpg");
+	display: none;
+}
+#win {
+	position: absolute;
+	top: 0px;
+	left: 175px;
+	width: 100px;
+	height: 81px;
+	background-image: url("img/win.jpg");
+	display: none;
+}
+#levelBackground {
+	width: 1000px;
+	height: 480px;
+	background-color: #dd5132; 
+	z-index: 0; 	
+}
