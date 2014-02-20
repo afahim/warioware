@@ -17,7 +17,7 @@ $( document ).ready(function() {
 });
 
 function gameFinished() {
-	$("#fence-container").show();
+	$("#fence-container").css("display", "block");
 	//fenceContainer.className = "lateral-move";
 
 	/*$(".door-holder").removeClass("not-slided");
@@ -49,7 +49,8 @@ function setupTestingHandlers() {
 
 	fenceContainer.addEventListener("webkitAnimationEnd", function(e){
 		if(e.animationName === "pan-in") {
-			$("#fence-container").hide();
+			$("#fence-container").css('display', 'hidden');
+			console.log("hidden is " + $("#fence-container").css('display'));
 		}
 	}, false);
 
