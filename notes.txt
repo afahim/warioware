@@ -12,4 +12,5 @@ Sebrand's
 
 Afnan's
 =======
-Hacking around css reload for car racing game. Make sure there is a proper work around
+- Hacking around css reload for car racing game. Make sure there is a proper work around
+- Gas pedal button for car racing
