@@ -1,3 +1,9 @@
+Team Notes
+==========
+- Framework for scoring
+- UI for more games
+- 
+
 Eric's
 ======
 
@@ -8,7 +14,7 @@ Matt's
 
 Sebrand's
 =========
-
+- Convert colors into sass variables
 
 Afnan's
 =======
