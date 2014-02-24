@@ -1,4 +1,14 @@
-// object constructor for new questions
+/* =======================================================================
+* Question Screen v0.1
+* Written by millerEric, afahim, mturnshek, nail60
+* ========================================================================
+* Summary: Asks the user a random question, 
+* randomly scrambling the answer choices.
+* ======================================================================== */
+
+
+// Object constructor for new questions
+// ===================================================
 function Question(id, text, correctAnswers, incorrectAnswers) {
 	this.id = id;
 	this.text = text;
@@ -6,6 +16,8 @@ function Question(id, text, correctAnswers, incorrectAnswers) {
 	this.incorrectAnswers = incorrectAnswers;
 }
 
+// Main Function for choosing and asking the question
+// ===================================================
 function askQuestion() {
 	// Question 1 Data
 	var text1 = 'I ___ learning.';
@@ -23,7 +35,6 @@ function askQuestion() {
 	var incorrectAns1 = ['9', '0', '11'];
 	var question3 = new Question(1, text1, correctAns1, incorrectAns1);
 	var allQuestions = [question1, question2, question3];
-
 
 	// Randomly choose a question
 	var randIndex = Math.floor(Math.random() *  allQuestions.length);
@@ -78,8 +89,4 @@ function askQuestion() {
 			gameFinished();
 		}	
 	});
-
-	var pctShrink = $('#ans1').width() / $('#ans1 div').width();
-	console.log(pctShrink);
-
 }
