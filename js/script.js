@@ -82,7 +82,7 @@ function nextGame() {
 
   /* #ToDo: Remove hardcoded start game func and use game objs instead*/
   if (gameIndex === 0) {
-    startGame1();
+    desertJump.startGame();
   } else if (gameIndex === 1) {
     askQuestion();
   } else if (gameIndex === 2) {
