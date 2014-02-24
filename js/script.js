@@ -1,10 +1,8 @@
 /* ========================================================================
-* Warioware: script.js v0.1
-* https://github.com/afahim/warioware/
+* script.js v0.1
+Written by millerEric, afahim, mturnshek, nail60
 * ========================================================================
-* Copyright 2014 Techbridgeworld, Inc.
-* Written by millerEric, afahim, mturnshek, nail60
-* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* Summary: 
 * ======================================================================== */
 
 /* Variable Names */
