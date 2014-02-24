@@ -1,3 +1,9 @@
+Team Notes
+==========
+- Framework for scoring
+- UI for more games
+- 
+
 Eric's
 ======
 
@@ -8,13 +14,12 @@ Matt's
 
 Sebrand's
 =========
-
+- Convert colors into sass variables
 
 Afnan's
 =======
 - Hacking around css reload for car racing game. Make sure there is a proper work around
 - Gas pedal button for car racing
-
 
 Feedback from Demo on Feb 20
 ============================
@@ -88,3 +93,4 @@ Feedback from Demo on Feb 20
 - shouldn't be able to win the game without thinking (just going full throttle),
   instead make each game require some skill (like judging the correct throttle level)
 - Kosbie says, "Good job guys!" (February 20, 2014, 6:26 PM)
+>>>>>>> 91dc1e0134a76356dfda7c0aecac2dde413913a7
