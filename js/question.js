@@ -8,7 +8,7 @@
 
 
 // Object constructor for new questions
-// ===================================================
+// ==========================================================
 function Question(id, text, correctAnswers, incorrectAnswers) {
 	this.id = id;
 	this.text = text;

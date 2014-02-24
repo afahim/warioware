@@ -3,6 +3,7 @@
 * https://github.com/afahim/warioware/
 * ========================================================================
 * Copyright 2014 Techbridgeworld, Inc.
+* Written by millerEric, afahim, mturnshek, nail60
 * Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
 * ======================================================================== */
 /* Table of Contents
@@ -55,6 +56,7 @@
     -webkit-transform: rotate(0deg);
   }
 }
+
 @-moz-keyframes turn-phone {
   0% {
     transform: rotate(0deg);
@@ -91,6 +93,7 @@
     -webkit-transform: rotate(0deg);
   }
 }
+
 @-ms-keyframes turn-phone {
   0% {
     transform: rotate(0deg);
@@ -127,6 +130,7 @@
     -webkit-transform: rotate(0deg);
   }
 }
+
 @keyframes turn-phone {
   0% {
     transform: rotate(0deg);
@@ -163,6 +167,7 @@
     -webkit-transform: rotate(0deg);
   }
 }
+
 @-webkit-keyframes pan-out {
   from {
     perspective: 21500px;
@@ -178,6 +183,7 @@
     -o-perspective: 800px;
   }
 }
+
 @-moz-keyframes pan-out {
   from {
     perspective: 21500px;
@@ -193,6 +199,7 @@
     -o-perspective: 800px;
   }
 }
+
 @-ms-keyframes pan-out {
   from {
     perspective: 21500px;
@@ -208,6 +215,7 @@
     -o-perspective: 800px;
   }
 }
+
 @keyframes pan-out {
   from {
     perspective: 21500px;
@@ -223,6 +231,7 @@
     -o-perspective: 800px;
   }
 }
+
 @-webkit-keyframes pan-in {
   from {
     perspective: 800px;
@@ -238,6 +247,7 @@
     -o-perspective: 21500px;
   }
 }
+
 @-moz-keyframes pan-in {
   from {
     perspective: 800px;
@@ -253,6 +263,7 @@
     -o-perspective: 21500px;
   }
 }
+
 @-ms-keyframes pan-in {
   from {
     perspective: 800px;
@@ -268,6 +279,7 @@
     -o-perspective: 21500px;
   }
 }
+
 @keyframes pan-in {
   from {
     perspective: 800px;
@@ -283,6 +295,7 @@
     -o-perspective: 21500px;
   }
 }
+
 @-webkit-keyframes knock-over {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -326,6 +339,7 @@
     transform: rotateX(95deg);
   }
 }
+
 @-moz-keyframes knock-over {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -369,6 +383,7 @@
     transform: rotateX(95deg);
   }
 }
+
 @-ms-keyframes knock-over {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -412,6 +427,7 @@
     transform: rotateX(95deg);
   }
 }
+
 @keyframes knock-over {
   0% {
     -webkit-transform: rotateX(0deg);
@@ -455,6 +471,7 @@
     transform: rotateX(95deg);
   }
 }
+
 @-webkit-keyframes slidein-left-door {
   from {
     -webkit-transform: translateX(-100%);
@@ -470,6 +487,7 @@
     transform: translateX(0%);
   }
 }
+
 @-moz-keyframes slidein-left-door {
   from {
     -webkit-transform: translateX(-100%);
@@ -485,6 +503,7 @@
     transform: translateX(0%);
   }
 }
+
 @-ms-keyframes slidein-left-door {
   from {
     -webkit-transform: translateX(-100%);
@@ -500,6 +519,7 @@
     transform: translateX(0%);
   }
 }
+
 @keyframes slidein-left-door {
   from {
     -webkit-transform: translateX(-100%);
@@ -515,6 +535,7 @@
     transform: translateX(0%);
   }
 }
+
 @-webkit-keyframes slideout-left-door {
   from {
     -webkit-transform: translateX(0%);
@@ -530,6 +551,7 @@
     transform: translateX(-100%);
   }
 }
+
 @-moz-keyframes slideout-left-door {
   from {
     -webkit-transform: translateX(0%);
@@ -545,6 +567,7 @@
     transform: translateX(-100%);
   }
 }
+
 @-ms-keyframes slideout-left-door {
   from {
     -webkit-transform: translateX(0%);
@@ -560,6 +583,7 @@
     transform: translateX(-100%);
   }
 }
+
 @keyframes slideout-left-door {
   from {
     -webkit-transform: translateX(0%);
@@ -575,6 +599,7 @@
     transform: translateX(-100%);
   }
 }
+
 @-webkit-keyframes slidein-right-door {
   from {
     -webkit-transform: translateX(100%);
@@ -590,6 +615,7 @@
     transform: translateX(0%);
   }
 }
+
 @-moz-keyframes slidein-right-door {
   from {
     -webkit-transform: translateX(100%);
@@ -605,6 +631,7 @@
     transform: translateX(0%);
   }
 }
+
 @-ms-keyframes slidein-right-door {
   from {
     -webkit-transform: translateX(100%);
@@ -620,6 +647,7 @@
     transform: translateX(0%);
   }
 }
+
 @keyframes slidein-right-door {
   from {
     -webkit-transform: translateX(100%);
@@ -635,6 +663,7 @@
     transform: translateX(0%);
   }
 }
+
 @-webkit-keyframes slideout-right-door {
   from {
     -webkit-transform: translateX(0%);
@@ -650,6 +679,7 @@
     transform: translateX(100%);
   }
 }
+
 @-moz-keyframes slideout-right-door {
   from {
     -webkit-transform: translateX(0%);
@@ -665,6 +695,7 @@
     transform: translateX(100%);
   }
 }
+
 @-ms-keyframes slideout-right-door {
   from {
     -webkit-transform: translateX(0%);
@@ -680,6 +711,7 @@
     transform: translateX(100%);
   }
 }
+
 @keyframes slideout-right-door {
   from {
     -webkit-transform: translateX(0%);
@@ -695,6 +727,7 @@
     transform: translateX(100%);
   }
 }
+
 /* #Site Styles
 ================================================== */
 #all-games {

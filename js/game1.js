@@ -1,3 +1,11 @@
+/* ========================================================================
+* Desert Jump v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
+
 desertJump = new Game();
 
 desertJump.startGame = function() {
