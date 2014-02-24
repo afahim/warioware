@@ -1,8 +1,26 @@
 Team Notes
 ==========
-- Framework for scoring
+- Framework for scoring (API, )
+- Game win and loose condition
+- Timing - set max time (countdown, and also an option for infinite countdown)
 - UI for more games
+- Polishing the look
+
+Game API
+
+Framework functions
 - 
+- 
+Game Functions
+
+Salem's code reviewy stuff
+have a consistent style
+spaces / tabs
+use camelcase
+readme
+organize css by layout, type (fonts etc), css reset
+can I pick things up without having seen the code
+avoid non standard protocol
 
 Eric's
 ======
@@ -24,7 +42,7 @@ Afnan's
 Feedback from Demo on Feb 20
 ============================
 -People expect swipe interface
--game is too nice (not loss screen)
+-game is too nice (no loss screen)
 -loss and win transition
 -needs score
 -talk existing companies to see if we could addapt their libreries of games to fit out system
@@ -93,4 +111,3 @@ Feedback from Demo on Feb 20
 - shouldn't be able to win the game without thinking (just going full throttle),
   instead make each game require some skill (like judging the correct throttle level)
 - Kosbie says, "Good job guys!" (February 20, 2014, 6:26 PM)
->>>>>>> 91dc1e0134a76356dfda7c0aecac2dde413913a7
