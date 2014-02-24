@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ========================================================================
 * Warioware: game2.js v0.1
 * https://github.com/afahim/warioware/
@@ -7,20 +6,12 @@
 * Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
 * ======================================================================== */
 
-var isGameFinished = false;
-var moveGoodInterval, moveBadInterval, chkWinInterval;
-
-function refreshStyle(stylesheet) {
-    $("#game2style").attr('href', stylesheet);
-}
-=======
 /* =======================================================================
 * Car Race Game v0.1
 * Written by millerEric, afahim, mturnshek, nail60
 * ========================================================================
 * Summary: User holds down a gas pedal to win a car race.
 * ======================================================================== */
->>>>>>> 5d30dfc4410fd21387ccbc6a2407bb592744d030
 
 function startGame2() {
 	// Set up the audio elements
