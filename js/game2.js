@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ========================================================================
 * Warioware: game2.js v0.1
 * https://github.com/afahim/warioware/
@@ -12,72 +13,92 @@ var moveGoodInterval, moveBadInterval, chkWinInterval;
 function refreshStyle(stylesheet) {
     $("#game2style").attr('href', stylesheet);
 }
+=======
+/* =======================================================================
+* Car Race Game v0.1
+* Written by millerEric, afahim, mturnshek, nail60
+* ========================================================================
+* Summary: User holds down a gas pedal to win a car race.
+* ======================================================================== */
+>>>>>>> 5d30dfc4410fd21387ccbc6a2407bb592744d030
 
 function startGame2() {
-    refreshStyle('stylesheets/game2.css');
+	// Set up the audio elements
     var engine = document.createElement('audio');
-    engine.setAttribute('src', 'sounds/engine.wav');        
-    var count = 3; // This is the initial countdown before the race
+    engine.setAttribute('src', 'sounds/engine.wav');  
+    // Game loops for updating car positions and checking win conditions
+	var moveGoodInterval, moveBadInterval, chkWinInterval;
+	// Set up the initial countdown 
+    var count = 3; 			// Number of seconds to count down
     document.getElementById("startTime").innerHTML=count;
+    
+    
+    // Countdown: This function counts down a timer in order to begin the race
+    // ========================================================================
+    function timer() {
+        count = count-1;
+        // Continue counting down after decrementing timer by one
+        if (count > 0) {
+            document.getElementById("startTime").innerHTML=count;
+        }
+        // Start the main game and tell player to go!
+        else if (count == 0) {
+            document.getElementById("startTime").innerHTML="GO";
+            setTimeout(function(){
+                $('#startTime').hide(100);
+            }, 500);
+            mainGame();  // call the main game function
+        }
+        else {
+            return;
+        }
+    }
+    setInterval(timer, 1000);  // updates the countdown timer every second
+    
+    
+    // This function counts down a timer in order to begin the race
+    // ========================================================================
     var mainGame = function() {
-
         var gasPedalPushed = false; // The gas starts not pressed down
-        // The car moves at rates dependent on the gas pedal being down or not      
+        // Car movement rates, dependent on whether gas pedal is pushed 
         var gasPedalPushedRate = 5;    
         var gasPedalNotPushedRate = 2; 
         
+        //  If the player pushes the gas pedal, start the 
         $('body').mousedown(function() {
-            $('#player1').clearQueue();
-            engine.play();  
-            gasPedalPushed = true;
+            $('#player1').clearQueue(); // clear any backlogged animations
+            engine.play();  			// play the engine sound
+            gasPedalPushed = true;		// this will initiate the car movement
         }).bind('mouseup', function() {
             $('#player1').clearQueue();
             engine.pause();
             gasPedalPushed = false;
         });
-        $(document).keydown(function(e) {
-            if (e.which == 68) { // 68 is 'd'
-                // We have clearQueue at the beginning so that there is no
-                // significant delay between the input and the car's movement
-                $('#player1').clearQueue();
-                engine.play();
-                if (!gasPedalPushed) {
-                    console.log("gas down");
-                    gasPedalPushed = true; // If you start holding d,
-                }                          // the gas is down
-            }
-        });
 
-        $(document).keyup(function(e) {
-            if (e.which == 68) {
-                $('#player1').clearQueue();
-                engine.pause();
-                console.log("gas up");
-                gasPedalPushed = false; // If you stop holding d, the gas is up
-            }
-        });
-
+		/* Update the badguy car position (called repeatedly by setInterval) */
         var moveBadguy = function() {
             // The bad guy always moves at a constant speed
             $('#player2').animate({left: '+=3px'}, 5);
         };
 
+		/* Update the goodguy car position at a rate dependent on whether gas
+		   pedal is pushed or not */
         var moveGoodguy = function() {
-            // If the gas pedal is down, move the green car by
-            // gasPedalPushedRate pixels
+        	// Gas pedal pushed
             if (gasPedalPushed) {
                 $('#player1').animate(
                     {left: '+=' + gasPedalPushedRate + 'px'}, 1 
                     );
             }
-            // If the gas pedal is not down, move the green car by
-            // gasPedalNotPushedRate pixels
+            // Gas pedal not pushed
             else {
                 $('#player1').animate(
                     {left: '+=' + gasPedalNotPushedRate + 'px'}, 1
                     );
             }
         };
+        
+        /* Check whether the game is over, and if so, who won */
         var checkWin = function() {
             // Getting data from CSS elements to check if the win
             // or loss condition has been met
@@ -86,13 +107,12 @@ function startGame2() {
             var winpos = parseInt($('#finish').css('left'));
             // If either car's position is past the finish line
             if ((p1pos > winpos) || (p2pos > winpos)) {
+            	// Stop the game loops and clear animation backlogs
                 clearInterval(moveGoodInterval);
                 clearInterval(moveBadInterval);
                 clearInterval(chkWinInterval);
                 $('#player1').clearQueue();
                 $('#player2').clearQueue();
-                //$('#player1').css('z-index',0)
-                //$('#player2').css('z-index',0)
                 // The player wins.
                 if (p1pos > p2pos) {
                     gameFinished();
@@ -103,30 +123,10 @@ function startGame2() {
                 }
             }
         }
-        // Update timings for the different functions, in milliseconds
+        
+        // Repeatedly update the car positions and check for win conditions
         moveGoodInterval = setInterval(moveGoodguy, 5);
         moveBadInterval = setInterval(moveBadguy, 5);
         chkWinInterval = setInterval(checkWin, 100);
-    }
-
-    // This function counts down in order to begin the race
-    function timer() {
-        count = count-1;
-        // Continue counting down after decrementing timer by one
-        if (count > 0) {
-            document.getElementById("startTime").innerHTML=count;
-        }
-        // Tell player to go!
-        else if (count == 0) {
-            document.getElementById("startTime").innerHTML="GO";
-            mainGame();
-            setTimeout(function(){
-                $('#startTime').hide(100);
-            }, 500);
-        }
-        else {
-            return;
-        }
-    }
-    setInterval(timer, 1000);
+	}
 }
