@@ -1,3 +1,14 @@
+/* ========================================================================
+* Warioware: box2dwebcustomlib.js v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== 
+*
+*These are functions are currently geared towards making the dessert jump game
+*
+*/
 
 // Sets up variable use for later.
 var   b2Vec2 = Box2D.Common.Math.b2Vec2

@@ -1,8 +1,18 @@
-function startGame1() {
+/* ========================================================================
+* Desert Jump v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
 
+desertJump = new Game();
+
+desertJump.startGame = function() {
    ////////////////////////
    // Creating the world //
    ////////////////////////
+   var that = this;
 
    var world = new b2World(new b2Vec2(0, 12), true);
 
@@ -102,14 +112,14 @@ function startGame1() {
              ((cBodyB == "backWheel") && (cBodyA == "rightFloor"))) {
             gameFinished(true); // The game ends and you win.
             gameOver = true;
-            endGame1(world);
+            that.endGame(world);
          }
          // If the chassis connects with the right floor
          else if (((cBodyA == "chassis") && (cBodyB == "rightFloor"))  ||
                   ((cBodyB == "chassis") && (cBodyA == "rightFloor"))) {
             gameFinished(false); // The game ends and you lose.
             gameOver = true; // The game condition can no longer change.
-            endGame1(world);
+            that.endGame(world);
          }
       }
    }
@@ -125,7 +135,7 @@ function startGame1() {
          if (gameOver == false) {
             gameFinished(false); // Lose the game
             gameOver = true;
-            endGame1(world);
+            that.endGame(world);
          }
       }
 
@@ -137,7 +147,6 @@ function startGame1() {
    window.setInterval(update, 1000 / 60);
 }
 
-// For now we need to pass endGame1 world to avoid using a global.
-function endGame1(world) {
+desertJump.endGame = function(world) {
    world = null
 }
