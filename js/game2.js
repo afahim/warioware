@@ -98,11 +98,11 @@ function startGame2() {
                 $('#player2').clearQueue();
                 // The player wins.
                 if (p1pos > p2pos) {
-                    gameFinished();
+                    gameFinished(true);
                 }
                 // The player loses.
                 else {
-                    gameFinished();
+                    gameFinished(false);
                 }
             }
         }

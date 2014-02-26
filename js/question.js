@@ -59,34 +59,34 @@ function askQuestion() {
 	// Check whether the button pressed was the correct or incorrect answer
 	$('#ans1').click(function() {
 		if (correctIdx == 1) {
-			gameFinished();
+			gameFinished(true);
 		}
 		else {
-			gameFinished();
+			gameFinished(false);
 		}	
 	});
 	$('#ans2').click(function() {
 		if (correctIdx == 2) {
-			gameFinished();
+			gameFinished(true);
 		}
 		else {
-			gameFinished();
+			gameFinished(false);
 		}	
 	});
 	$('#ans3').click(function() {
 		if (correctIdx == 3) {
-			gameFinished();
+			gameFinished(true);
 		}
 		else {
-			gameFinished();
+			gameFinished(false);
 		}	
 	});
 	$('#ans4').click(function() {
 		if (correctIdx == 4) {
-			gameFinished();
+			gameFinished(true);
 		}
 		else {
-			gameFinished();
+			gameFinished(false);
 		}	
 	});
 }

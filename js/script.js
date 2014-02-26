@@ -1,12 +1,13 @@
 /* ========================================================================
 * script.js v0.1
-Written by millerEric, afahim, mturnshek, nail60
+* Written by millerEric, afahim, mturnshek, nail60
 * ========================================================================
-* Summary: 
+* Summary: Warioware framework that loads different games, handles
+* transitions and scoring
 * ======================================================================== */
 
 /* Variable Names */
-var nGames, fenceContainer;
+var nGames, fenceContainer, totalScore;
 
 /* Function Names */
 var invertWidthHeight, setupGameplayHandlers, nextGame, startGame1,
@@ -68,9 +69,17 @@ function setupGameplayHandlers() {
 
 // Called by a mini-gme once a game has terminated
 // ===============================================
-function gameFinished() {
+function gameFinished(result) {
   $("#fence-container").css('visibility', '');
   fenceContainer.className = "lateral-back";
+
+  /* updating score based on result */
+  if (result === true) {
+    totalScore = totalScore + 1;
+  }
+  else {
+    totalScore = totalScore - 1;
+  }
 }
 
 // Randomly selecting and displaying a minigame to the user
