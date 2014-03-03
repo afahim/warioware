@@ -1,5 +1,5 @@
 /* ========================================================================
-* script.js v0.1
+* script.js v0.2
 * Written by millerEric, afahim, mturnshek, nail60
 * ========================================================================
 * Summary: Warioware framework that loads different games, handles
@@ -7,7 +7,9 @@
 * ======================================================================== */
 
 /* Variable Names */
-var nGames, fenceContainer, totalScore;
+var nGames, fenceContainer, totalScore, gamesPlayed;
+gameOver = false;
+gamesPlayed = 0;
 
 /* Function Names */
 var invertWidthHeight, setupGameplayHandlers, nextGame, startGame1,
@@ -55,7 +57,14 @@ function setupGameplayHandlers() {
     } else if (e.animationName === "slidein-left-door") {
       $(".door-holder").removeClass("slided");
       $(".door-holder").addClass("not-slided");
-      nextGame();
+      // If the game is not over, go to the next minigame
+      // Otherwise we go to the game over screen which displays score.
+      if (gameOver === false) {
+        nextGame();
+      }
+      else {
+        lastScreen();
+      }
     } else if (e.animationName === "slideout-left-door") {
       fenceContainer.className = "lateral-move";
     }
@@ -75,10 +84,10 @@ function gameFinished(result) {
 
   /* updating score based on result */
   if (result === true) {
-    totalScore = totalScore + 1;
+    totalScore = totalScore + 100;
   }
   else {
-    totalScore = totalScore - 1;
+    totalScore = totalScore - 50;
   }
 }
 
@@ -97,4 +106,15 @@ function nextGame() {
   } else if (gameIndex === 2) {
     startGame2();
   }
+  gamesPlayed++;
+  if (gamesPlayed === 5) { // Number should be variable later on
+    gameOver = true;
+  }
+}
+
+// Displays the score and any options for after the game has been played
+// =====================================================================
+// Needs to be implemented
+function lastScreen() {
+  return
 }
