@@ -1,0 +1,19 @@
+#scoreScreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: black;
+	visibility: hidden;
+	z-index: 0;
+}
+
+#scoreScreen div {
+	position: absolute;
+	top: 45%;
+	left: 40%;
+	color: #FFF;
+	font-size: 72px;
+	font-family: Quicksand, sanserif;
+}

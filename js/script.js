@@ -10,6 +10,7 @@
 var nGames, fenceContainer, totalScore, gamesPlayed;
 gameOver = false;
 gamesPlayed = 0;
+totalScore = 0;
 
 /* Function Names */
 var invertWidthHeight, setupGameplayHandlers, nextGame, startGame1,
@@ -82,13 +83,17 @@ function gameFinished(result) {
   $("#fence-container").css('visibility', '');
   fenceContainer.className = "lateral-back";
 
+  console.log(result);
+
+  console.log(totalScore);
   /* updating score based on result */
   if (result === true) {
-    totalScore = totalScore + 100;
+    totalScore += 100;
   }
   else {
-    totalScore = totalScore - 50;
+    totalScore -= 50;
   }
+  console.log(totalScore);
 }
 
 // Randomly selecting and displaying a minigame to the user
@@ -116,5 +121,8 @@ function nextGame() {
 // =====================================================================
 // Needs to be implemented
 function lastScreen() {
-  return
+  console.log(totalScore);
+  var scoreString = totalScore.toString();
+  $("#scoreScreen").css('visibility', 'visible'); 
+  $("#scoreScreen div").append(scoreString)
 }

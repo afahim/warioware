@@ -106,16 +106,17 @@ desertJump.startGame = function() {
    var gameOver = false;
 
    function winGame() { 
-      if (gameOver == false)
+      if (gameOver == false) {
          gameOver = true; // The game condition can no longer change
-         gameFinished(true); // returns a win to the framework
+         that.gameWonOrLost = false; // returns a win to the framework
          that.endGame(world);
+      }
    }
 
    function loseGame() {
       if (gameOver == false) {
          gameOver = true; 
-         gameFinished(false); // returns a loss to the framework
+         that.gameWonOrLost = false; // returns a loss to the framework
          that.endGame(world);
       }
    }
@@ -169,5 +170,6 @@ desertJump.startGame = function() {
 }
 
 desertJump.endGame = function(world) {
+   gameFinished(this.gameWonOrLost);
    world = null
 }
