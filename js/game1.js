@@ -6,6 +6,7 @@
 * Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
 * ======================================================================== */
 
+
 desertJump = new Game();
 
 desertJump.startGame = function() {
@@ -18,18 +19,22 @@ desertJump.startGame = function() {
 
    // Creating the walls
    var leftFloor = createStaticBox(world, -12, 23, 30, 4);
-   var rightFloor = createStaticBox(world, 55, 23, 30, 4);
+   var rightFloor = createStaticBox(world, 30, 23, 8, 4);
+   var stoppingRamp = createStaticTriangle(world, [-4,0], [0, -3], [0,0], [38, 19]);
+   stoppingRamp.name = "stoppingRamp";
    rightFloor.name = "rightFloor"; // We name this one because we use it
                                   // in the game logic later.
                                   // The other bodies which do not have .name
                                   // return undefined when queried for it.
    var ceiling = createStaticBox(world, 10, -1.8, 30, 2);
    var leftWall = createStaticBox(world, -1.8, 13, 2, 14);
+   leftWall.name = "leftFloor";
 
 
    // The object is centered at (18, 19), and the other arguments are points
    // relative to the center of the triangle.
-   var triangle = createStaticTriange(world, [-9, 0], [0, -3], [0,0], [18, 19]);
+   var ramp = createStaticTriangle(world, [-9, 0], [0, -3], [0,0], [18, 19]);
+   ramp.name = "ramp";
 
    // car is a Car object which containts
    // .chassis, .backShock, .frontShock,
@@ -98,28 +103,48 @@ desertJump.startGame = function() {
    // Win or loss condition checking //
    ////////////////////////////////////
 
+   var gameOver = false;
+
+   function winGame() { 
+      if (gameOver == false)
+         gameOver = true; // The game condition can no longer change
+         gameFinished(true); // returns a win to the framework
+         that.endGame(world);
+   }
+
+   function loseGame() {
+      if (gameOver == false) {
+         gameOver = true; 
+         gameFinished(false); // returns a loss to the framework
+         that.endGame(world);
+      }
+   }
+
+   function bodiesTouching(bodyA, bodyB, name1, name2) {
+      if (((bodyA == name1) && (bodyB == name2)) ||
+         ((bodyA == name2) && (bodyB == name1))) {
+         return true;
+      }
+      return false;
+   }
 
    // Setting up a contact listener, which automatically initiates
    // events which occur due to collisions between fixtures.
-   var gameOver = false;
    var listener = new Box2D.Dynamics.b2ContactListener;
    listener.BeginContact = function(contact) {
       cBodyA = contact.GetFixtureA().GetBody().name; // First body
       cBodyB = contact.GetFixtureB().GetBody().name; // Second body
       if (gameOver == false) {
-         // If the front or back wheels have connected with right floor
-         if (((cBodyA == "backWheel") && (cBodyB == "rightFloor")) ||
-             ((cBodyB == "backWheel") && (cBodyA == "rightFloor"))) {
-            gameFinished(true); // The game ends and you win.
-            gameOver = true;
-            that.endGame(world);
+         // If the back wheels have connected with right side
+         if ((bodiesTouching(cBodyA, cBodyB, "backWheel", "rightFloor")) ||
+             (bodiesTouching(cBodyA, cBodyB, "backWheel", "stoppingRamp"))) {
+            setTimeout(function() {winGame()}, 2000);
          }
-         // If the chassis connects with the right floor
-         else if (((cBodyA == "chassis") && (cBodyB == "rightFloor"))  ||
-                  ((cBodyB == "chassis") && (cBodyA == "rightFloor"))) {
-            gameFinished(false); // The game ends and you lose.
-            gameOver = true; // The game condition can no longer change.
-            that.endGame(world);
+         // If the chassis connects with any static body
+         else if ((bodiesTouching(cBodyA, cBodyB, "chassis", "rightFloor")) ||
+                  (bodiesTouching(cBodyA, cBodyB, "chassis", "stoppingRamp")) ||
+                  (bodiesTouching(cBodyA, cBodyB, "chassis", "ramp"))) {
+            loseGame();
          }
       }
    }
@@ -131,12 +156,8 @@ desertJump.startGame = function() {
 
       // Tests to see if the player has fallen down the hole.
       // If they have, the game is over and the player loses.
-      if (car.chassis.m_sweep.c.y > 25) {
-         if (gameOver == false) {
-            gameFinished(false); // Lose the game
-            gameOver = true;
-            that.endGame(world);
-         }
+      if (car.chassis.m_sweep.c.y > 25) { // If the car is too low
+         loseGame();
       }
 
       world.Step(1 / 60, 10, 10);

@@ -86,6 +86,7 @@ function gameFinished(result) {
 // ========================================================
 function nextGame() {
   var gameIndex = Math.floor(Math.random() * nGames);
+  //gameIndex = 0;
   $("#game-instance").html($("#game" + gameIndex).html());
 
   /* #ToDo: Remove hardcoded start game func and use game objs instead*/

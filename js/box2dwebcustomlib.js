@@ -158,7 +158,7 @@ function makeCar(world, x, y) {
 // Creates a triangle which extends to
 // the specified points relatvie to the center.
 // Returns the triangle.
-function createStaticTriange(world, p0, p1, p2, c) {
+function createStaticTriangle(world, p0, p1, p2, c) {
     var fixTri = new b2FixtureDef;
     fixTri.shape = new b2PolygonShape;
     fixTri.density = 1.0;
@@ -174,5 +174,7 @@ function createStaticTriange(world, p0, p1, p2, c) {
     var bodyTri = new b2BodyDef;
     bodyTri.type = b2Body.b2_staticBody;    
     bodyTri.position.Set(c[0], c[1]);
-    return world.CreateBody(bodyTri).CreateFixture(fixTri);
+    var b = world.CreateBody(bodyTri);
+    b.CreateFixture(fixTri);
+    return b;
 }
