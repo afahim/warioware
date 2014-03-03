@@ -93,14 +93,13 @@ function gameFinished(result) {
   else {
     totalScore -= 50;
   }
-  console.log(totalScore);
 }
 
 // Randomly selecting and displaying a minigame to the user
 // ========================================================
 function nextGame() {
   var gameIndex = Math.floor(Math.random() * nGames);
-  //gameIndex = 0;
+  //gameIndex = 3;
   $("#game-instance").html($("#game" + gameIndex).html());
 
   /* #ToDo: Remove hardcoded start game func and use game objs instead*/
@@ -110,6 +109,8 @@ function nextGame() {
     askQuestion();
   } else if (gameIndex === 2) {
     startGame2();
+  } else if (gameIndex === 3) {
+    pancakeFlip.startGame();
   }
   gamesPlayed++;
   if (gamesPlayed === 5) { // Number should be variable later on
@@ -121,7 +122,6 @@ function nextGame() {
 // =====================================================================
 // Needs to be implemented
 function lastScreen() {
-  console.log(totalScore);
   var scoreString = totalScore.toString();
   $("#scoreScreen").css('visibility', 'visible'); 
   $("#scoreScreen div").append(scoreString)

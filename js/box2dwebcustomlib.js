@@ -1,5 +1,5 @@
 /* ========================================================================
-* Warioware: box2dwebcustomlib.js v0.1
+* Warioware: box2dwebcustomlib.js v0.2
 * https://github.com/afahim/warioware/
 * ========================================================================
 * Copyright 2014 Techbridgeworld, Inc.
@@ -121,7 +121,7 @@ function makeCar(world, x, y) {
     var chassis = createBox(world, x, y, 1, .4);
     chassis.name = "chassis";
     var backWheel = createBall(world, x - 1.2, y + 1, .4);
-    backWheel.name = "backWheel";
+    backWheel.name = "backWheel"; 
     var frontWheel = createBall(world, x + 1.2, y + 1, .4);
     frontWheel.name = "frontWheel";
     backWheel.angularVelocity = 0;
