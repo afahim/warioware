@@ -184,35 +184,61 @@ function createStaticTriangle(world, p0, p1, p2, c) {
 
 // Here is the object for the main element in box2d, which contains a body,
 // the scale at which to draw the body, and a path to the image for that body.
-function B2CanvasElement(b2dBody, scale, imagePath) {
+function B2CanvasElement(b2dBody, scale, imagePath, xOffset, yOffset) {
     this.b2dBody = b2dBody;
     this.scale = scale;
     this.image = new Image();
     this.image.src = imagePath;
+    // x, y, and angle of the bodies are functions, which means to get
+    // these values, you call instance.b2dBody.x(), for example.
     this.x = function() {
         return b2dBody.m_sweep.c.x
     }
     this.y = function() {
         return b2dBody.m_sweep.c.y
     }
-    //this.angle = b2Body.GetAngle();
+    this.angle = function() {
+        return b2dBody.GetAngle();
+    }
 
-    //var angle = this.angle;
+    // Setting offsets. The goal is to draw images offset by 
+    // (xOffset*imagewidth, yOffset*imageheight) and to make them
+    // optional parameters to object creation.
+    this.xOffset = xOffset;
+    this.yOffset = yOffset;
+
+    if (this.xOffset === undefined) {
+        this.xOffset = 0;
+    }
+
+    if (this.yOffset === undefined) {
+        this.yOffset = 0;
+    }
+
+    var xOffset = this.xOffset;
+    var yOffset = this.yOffset;
+    var angle = this.angle;
     var x = this.x;
     var y = this.y;
     var image = this.image;
 
     this.draw = function(context) {
         if (image != null) {
-            //context.rotate(angle);
-            context.drawImage(image, x()*scale, y()*scale);
+            context.save();
+            context.translate(x()*scale, y()*scale);
+            context.rotate(angle());
+            context.drawImage(
+                              image,
+                              ((-image.width/2) + (xOffset*(image.width))),
+                              (-image.height/2)
+                             );
+            context.restore();
         }
         else {
             console.log("Could not draw image");
         }
     }
 }
-
 
 // Here is a function which clears the canvas and redraws the elements.
 function drawB2Graphics(canvas, context, listOfB2CanvasElements) {
