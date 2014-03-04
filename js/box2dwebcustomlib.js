@@ -178,3 +178,61 @@ function createStaticTriangle(world, p0, p1, p2, c) {
     b.CreateFixture(fixTri);
     return b;
 }
+
+// The following three functions have to do with drawing box2d elements using 
+// the canvas, and updating the game when using such elements.
+
+// Here is the object for the main element in box2d, which contains a body,
+// the scale at which to draw the body, and a path to the image for that body.
+function B2CanvasElement(b2dBody, scale, imagePath) {
+    this.b2dBody = b2dBody;
+    this.scale = scale;
+    this.image = new Image();
+    this.image.src = imagePath;
+    this.x = function() {
+        return b2dBody.m_sweep.c.x
+    }
+    this.y = function() {
+        return b2dBody.m_sweep.c.y
+    }
+    //this.angle = b2Body.GetAngle();
+
+    //var angle = this.angle;
+    var x = this.x;
+    var y = this.y;
+    var image = this.image;
+
+    this.draw = function(context) {
+        if (image != null) {
+            //context.rotate(angle);
+            context.drawImage(image, x()*scale, y()*scale);
+        }
+        else {
+            console.log("Could not draw image");
+        }
+    }
+}
+
+
+// Here is a function which clears the canvas and redraws the elements.
+function drawB2Graphics(canvas, context, listOfB2CanvasElements) {
+    context.save();
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.restore();
+    for (var i = 0; (i < listOfB2CanvasElements.length); i++) {
+        listOfB2CanvasElements[i].draw(context);    
+    }
+}
+
+
+// This function takes a box2d world, canvas, context, and the elements inside
+// the world, and updates said world a preset amount, including drawing 
+// graphics.
+function updateBox2dGame(world, canvas, context, listOfB2CanvasElements) {
+    // stepping box2dworld
+    world.Step(1 / 60, 10, 10);
+    world.ClearForces();
+    // Graphics
+    drawB2Graphics(canvas, context, listOfB2CanvasElements);
+}
+
