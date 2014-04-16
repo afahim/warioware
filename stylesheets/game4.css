@@ -1,0 +1,68 @@
+#player {
+	position: absolute;
+	top: 15%;
+	left: 4%;
+	width: 10%;
+	height: 20%;
+	background-image: url("../images/player.png");
+	background-repeat: no-repeat;
+	
+}
+#goal {
+	position: absolute;
+	top: 0%;
+	left: 90%;
+	width: 15%;
+	height: 100%;
+	background-image: url("../images/checkerboard.jpg");
+}
+#ball {
+	position: absolute;
+	top: 21%;
+	left: 8%;
+	width: 3%;
+	height: 3%;
+	background-repeat: no-repeat;
+	background-image: url("../images/ball.jpg");
+}
+#kickButton {
+	position: absolute;
+	top: 76%;
+	left: 35%;
+	height: 10%;
+	width: 10%;
+	background-color: red;
+	font-size: 1em;
+	font-weight: bold;
+}
+#chargeLabel {
+	position: absolute;
+	top: 67%;
+	left: 5%;
+	color: Black;
+	font-size:2em;
+	font-weight: bold;
+}
+#chargeBox {
+	position: absolute;
+	top: 75%;
+	left: 5%;
+	width: 25%;
+	height: 10%;
+	background-color: Red;
+}
+
+#chargeFull {
+	position: absolute;
+	top: 75%;
+	left: 5%;
+	width: 0%;
+	height: 10%;
+	background-color: Green;
+}
+#levelBackground4 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: DarkOliveGreen;  	
+}

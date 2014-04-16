@@ -1,0 +1,24 @@
+<h1 id="rapid-frame">Rapid Frame</h1>
+<h2 id="about">About</h2>
+<p><strong>Rapid Frame</strong> is an educational game framework associated with 
+TechBridgeWorld. The target audience of this game was origianaly the students at
+The AWSAJ Academy in Doja Qatar. It can be related to games 
+like WarioWare in that it is composed of many micro-games that last around 10 
+seconds or less. The educational aspect is semlessly inserted inbetween games 
+as if each question is just anothher micro-game. </p>
+<h2 id="running-the-framework">Running the framework</h2>
+<p>Download the framework and host it on any Apache server. Once on a server, simply open the index.html file in the browser of your choice (we recommend Chrome!).</p>
+<h2 id="developing-a-new-game">Developing a new game</h2>
+<p>Creating a game for the RapidFrame collection is really easy. Just follow these steps!</p>
+<ol>
+<li>Clone the template folder in the &quot;games&quot; directory and rename it with the name of your game.</li>
+<li>Open the &quot;game.js&quot; file inside your newly created folder.</li>
+<li>Uncomment the javascript code and replace &quot;template&quot; with whatever you want to call your game.</li>
+<li>Insert your code in startGame() and endGame() funcitons respectively to implement your game logic.</li>
+<li>Open &quot;gamesList.html&quot; file and add a script tag using the instructions given on in the gamesList.html file.</li>
+</ol>
+<p>The framework provides you with a canvas element and we encourage you to create your games on the canvas element. This element can be accesssed using the following line of javascript.</p>
+<p>var canvas = document.getElementById(&quot;canvas&quot;);</p>
+<p>However we don&#39;t restrict you to sticking to canvas based games only, and you are welcome to create any HTML elements inside the canvas element, and add any CSS to these elements by definining a CSS file inside your game folder. However be sure to delete all these HTML elements that you create inside the endGame() funciton of your game.</p>
+<p>You are welcome to use audio files and images inside your game. Just be sure to put all these files inside your game folder.</p>
+<p><strong>Referencing files</strong> - If you want to refer any file inside your game.js file, make sure you provide the full path from the root directory. For example, if the file you are trying to reference inside your game folder is called &quot;image.png&quot;, the game you are making is called &quot;mygame&quot; and the file is located at games/mygame/image.png, then the path would be &quot;./games/mygame/image.png&quot;.</p>

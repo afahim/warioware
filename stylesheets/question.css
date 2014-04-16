@@ -1,0 +1,125 @@
+/* ========================================================================
+* Warioware: question.css v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
+
+
+/* Table of Contents
+==================================================
+
+#questionPrompt
+.ans
+#ans1
+#ans2
+#ans3
+#ans4
+#levelBackground
+
+================================================== */
+
+#questionPrompt {
+	top:3%;
+	left:2%;
+	font-family: Quicksand, sans-serif;
+	font-size: 2em;
+	border-radius: 2px;
+	box-shadow: 2px 2px 6px #bdc3c7;
+	border-color: gray;
+	background-color: #FFFFFF;
+	width: 93%;
+	height: 31%;	
+	padding-left: 2%;
+	padding-top: 2%;
+	position: absolute;
+}
+.ans {
+	font-size: 2em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 2px;
+	border-style: none;
+	border-color: gray;
+	background-color: #FFFFFF; /* #9a3923; */
+	box-shadow: 2px 2px 6px #bdc3c7;
+	width:20%;
+	height: 45%;
+	position: absolute;
+	color: black;
+	-moz-user-select: -moz-none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select: none; 
+	user-select: none;
+}
+
+.ansText {
+	padding-left: 2%;
+	padding-top: 3%;
+}
+
+#ans1 {
+	top:40%;
+	left:2%;
+}
+#ans2 {
+	top:40%;
+	left:28%;
+}
+#ans3 {
+	top:40%;
+	left:53%;
+}
+#ans4 {
+	top:40%;
+	left:77%;
+}
+
+.ans-selected {
+	background: #FFC956;
+	color: white; !important	
+}
+
+#submit {
+	font-size: 2em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 20px;
+	border-style: none;
+	border-color: gray;
+	background-color: #FFFFFF; /* #9a3923; */
+	box-shadow: 2px 2px 6px #bdc3c7;
+	top: 88%;
+	left: 77%;
+	height: 10%;
+	width: 20%;
+	position: absolute;
+}
+
+.submit-selected {
+	border-radius: 30px;
+	box-shadow: 1px 1px 6px #bdc3c7;
+}
+
+.audioImage {
+	background-image: url('../images/audioIconSmall.png');
+	right: 0%;
+	bottom: 0%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	width: 35px;
+	height: 35px;
+	z-index: 0;
+	position: absolute;
+}
+
+#audioImage0 {
+	margin-right: 0.5%;
+	margin-bottom: 0.5%;
+}
+
+#questionScreen {
+	width: 100% !important;
+	height: 100% !important;
+	background-color: #3498db;  /* #dd5132;	 */
+}

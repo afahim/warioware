@@ -1,0 +1,96 @@
+Team Notes
+==========
+- Framework for scoring
+- UI for more games
+- 
+
+Eric's
+======
+
+
+Matt's
+======
+
+
+Sebrand's
+=========
+- Convert colors into sass variables
+
+Afnan's
+=======
+- Fix score screen repitition and unexplained whitespace at the bottom of the game
+- Question screen audio and video / pictures
+- Opensource screen rotation
+
+Feedback from Demo on Feb 20
+============================
+-People expect swipe interface
+-game is too nice (not loss screen)
+-loss and win transition
+-needs score
+-talk existing companies to see if we could addapt their libreries of games to fit out system
+-A way to better connect the minigames with the questions
+-A minigame that also incorporates answering questions to progress
+  // (this symbol means notetaker thought)
+  // This is a good idea -- I wonder if we can have intermediate things
+  // One type which is a minigame, one type which is a question, and
+  // another type for a "minigame question!"
+  // Potentially, we could do it in special instances if they miss
+  // a question?
+- We need better instructions for people not used to playing games
+- It might be interesting to have a story so people know where the games are headed
+- More variance in the same minigame
+- Make there be a reward for answering a question correctly
+- Maybe not a constant system like  MMQMMQ but make it so that if
+	they miss questions they will get more etc.
+- Somehow get information about how much fun kids are having with the games
+- Feedback from the game based on what is going on -- difficult if they are not comfortable with english
+- Questions - do you want them to win the first time they play it?
+- The same minigame is different every time? Randomized slightly to keep the kids interested?
+- What increased controls can we add to these current games?
+  // Possibly "goals" in our minigames that you aren't punished for but get
+  // extra points if you do correctly. E.g. "jump through the loop!" in desert jump.
+- Allow intuitive reaction to occur. Show the user how to play the game better than
+	we are doing now.
+- Not boring, but not no longer a minigame.
+ // We need to really start thinking about and designing all aspects of our minigames
+ // Currently, our designs are "cool" but not really encapsulating.
+- Kids are scared by afnan
+- The ceiling is better than our game...
+ // However, the ceiling in Newell-Simon is actually quite interesting.
+- Putting a finger so people know where to touch
+- More game modes
+- Have something associated with the minigames, don't understand what the minigames are supposed to be teaching.
+- Fluid transitions
+- More green -Salem
+ // Nice notes Sebrand...
+- "What were you doing in car racing?" Confusing controls/visuals
+- Goals not clear -- some way to show what to do in all of our games.
+ // Possibly something where they see a "ghost" of what they are supposed to do
+ // if it can't be immediately obvious. Also, could use short, basic english?
+- Too slow
+- Pay more attention to when our questions show up.
+ // That's Important enough that Bernadine asked about it in the demo
+ // She clearly is focusing more on the applications side, which we are neglecting a little
+- Controls confusing, especially when the same looking red button has multiple controls.
+- Make it more clear which car you are in the racing game. (You're the green car!!)
+- Need to implement overall score.
+- Need feedback for win/loss.
+- If you flip the car before the jump it's a deadlock. 
+- How to make the games quick but somewhat more challenging/ engaging.
+- Knocking over the initial screen is not obvious what to do.
+- Highlight "who you are" in each game.
+ // I think that this is the time where we need to start focusing on design
+ // and begin making everything we do "finalized" or at least polished.
+- Coco subsersive human
+- Matt heartless bastard
+- Our game is GREAT
+- Afnan records all of his phone conversations, so be careful.
+- Love the transitions
+- Apparently the one game where you hold the button is able to be beaten by tapping.
+- Strangely pretty fun, he seems to be captivated... even though he knows there's only two he keeps going!
+- Timer
+- Questions that relate to minigames
+- shouldn't be able to win the game without thinking (just going full throttle),
+  instead make each game require some skill (like judging the correct throttle level)
+- Kosbie says, "Good job guys!" (February 20, 2014, 6:26 PM)

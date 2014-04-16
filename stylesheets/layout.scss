@@ -1,0 +1,428 @@
+/* ========================================================================
+* Warioware: layout.scss v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Written by millerEric, afahim, mturnshek, nail60
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
+
+
+/* Table of Contents
+==================================================
+
+#Mixins Styles
+#Animation Definitions
+#Site Styles
+#Media Queries
+*/
+
+/* #Mixins Styles
+* Defining mixins for CSS3 cross browser 
+* compatibility
+================================================== */
+
+@mixin wario-rotate($angle) {
+	transform:rotate($angle);
+	-moz-transform:rotate($angle);
+	-o-transform:rotate($angle);
+	-webkit-transform:rotate($angle);
+}
+
+@mixin wario-rotateX($angle) {
+	-webkit-transform:  rotateX( $angle );
+	-moz-transform:  rotateX( $angle );
+	-o-transform:  rotateX( $angle );
+	transform:  rotateX( $angle );
+}
+
+@mixin wario-perspective($length) {
+	perspective: $length;
+	-webkit-perspective: $length;
+	-moz-perspective: $length;
+	-o-perspective: $length;
+}
+
+@mixin wario-translateX($angle) {
+	-webkit-transform:  translateX($angle);
+	-moz-transform:  translateX($angle);
+	-o-transform:  translateX($angle);
+	transform:  translateX($angle);
+}
+
+@mixin wario-transform-style($style) {
+	-webkit-transform-style: $style;
+	-moz-transform-style: $style;
+	-o-transform-style: $style;
+	transform-style: $style;
+}
+
+@mixin wario-transform-origin($x, $y) {
+	-webkit-transform-origin: $x $y;
+	-moz-transform-origin: $x $y;
+	-o-transform-origin: $x $y;
+	transform-origin: $x $y;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	} 
+}
+
+/* #Animation Definition
+================================================== */
+@include keyframes(turn-phone)
+{
+	0% {
+		@include wario-rotate(0deg);
+	}
+	60% {
+		@include wario-rotate(90deg);
+	}
+	80% {
+		@include wario-rotate(90deg);
+	}
+	90% {
+		@include wario-rotate(0deg);
+	}
+	100% {
+		@include wario-rotate(0deg);
+	}
+}
+
+@include keyframes(pan-out) {
+	from {
+		@include wario-perspective(21500px);
+	}
+	to {
+		@include wario-perspective(800px);
+	}
+}
+
+@include keyframes(pan-in) {
+	from {
+		@include wario-perspective(800px);
+	}
+	to {
+		@include wario-perspective(21500px);
+	}
+}
+
+@include keyframes(knock-over) {
+	0% {
+		@include wario-rotateX(0deg);
+	}
+	50% {
+		@include wario-rotateX(+90deg);
+	}
+	65% {
+		@include wario-rotateX(+80deg);
+	}
+	80% {
+		@include wario-rotateX(+90deg);
+	}
+	90% {
+		@include wario-rotateX(+85deg);
+	}
+	100% {
+		@include wario-rotateX(+95deg);
+	}
+}
+
+@include keyframes(slidein-left-door) 
+{
+	from {
+		@include wario-translateX(-100%);
+	}
+	to {
+		@include wario-translateX(-0%);
+	}
+}
+
+@include keyframes(slideout-left-door)
+{
+	from {
+		@include wario-translateX(0%);
+	}
+	to {
+		@include wario-translateX(-100%);
+	}
+}
+
+@include keyframes(slidein-right-door)
+{
+	from {
+		@include wario-translateX(100%);
+	}
+	to {
+		@include wario-translateX(0%);
+	}
+}
+
+@include keyframes(slideout-right-door)
+{
+	from {
+		@include wario-translateX(0%);
+	}
+	to {
+		@include wario-translateX(100%);
+	}
+}
+
+/* #Site Styles
+================================================== */
+
+body {
+	background: #D2EDFF; /*#ecf0f1;*/
+}
+
+button {
+	outline: none;
+}
+
+// Hiding list of all games
+#all-games {
+	display: none;
+}
+
+// Prompting user to rotate if phone is in portrait orientation
+@media only screen and (orientation:portrait) {
+	#fence { display:none; }
+	#warning-message { display:block; }
+	#rotating-phone {
+		position: fixed;
+		top: 25%;
+		left: 30%;
+		animation:turn-phone 2s;
+		animation-iteration-count:infinite;
+		-webkit-animation:turn-phone linear 2s;
+		-webkit-animation-iteration-count:infinite;
+	}
+}
+
+@media only screen and (orientation:landscape){
+	#portrait-warning { display:none; }
+}
+
+#container {
+	z-index: 2;
+}
+
+#fence-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	margin: 0 auto 40px;
+	border: 1px solid #CCC;
+
+	@include wario-perspective(800px);
+}
+
+#canvas {
+	visibility: visible;
+}
+
+#questionScreen {
+	visibility: hidden;
+	z-index: 0;
+}
+
+#score-display {
+	font-size: 3em;
+	color: white;
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 47%;
+	z-index: 10;
+}
+
+#bottom-card {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+	@include wario-transform-style(preserve-3d);
+	@include wario-transform-origin(bottom, center);
+}
+
+// Animation for knocking over start screen
+#bottom-card.flipped {
+	animation:knock-over linear 1s;
+	-webkit-animation:knock-over linear 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+// Panning into game screen for user to be able to play a game
+#fence-container.lateral-move {
+	animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
+	-webkit-animation:pan-in cubic-bezier(.5,.04,.99,0) 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+// Panning out from game into transition screen
+#fence-container.lateral-back {
+	animation:pan-out cubic-bezier(.35,.72,.5,.64) 1s;
+	-webkit-animation:pan-out cubic-bezier(.35,.72,.5,.64) 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+figure {
+	display: block;
+	height: 100%;
+	width: 100%;
+	line-height: 260px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+#bottom-card .front-card {
+	background: red;
+	padding-top: 20% !important;
+	font-family: Quicksand !important;
+	font-size: 4em !important;
+}
+
+#bottom-card .side-card {
+	background: #D4D4D4;
+}
+
+#top-card {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #9B9B9B;
+
+	@include wario-transform-style(preserve-3d);
+	@include wario-transform-origin(top, center);
+
+	@include wario-rotateX(-90deg);
+}
+
+#left-card {
+	position: absolute;
+	background: #D4D4D4;
+
+	@include wario-transform-style(preserve-3d);
+	@include wario-transform-origin(left, center);
+
+	-webkit-transform:  rotateY( +90deg );
+	-moz-transform:  rotateY( +90deg );
+	-o-transform:  rotateY( +90deg );
+	transform:  rotateY( +90deg );
+}
+
+#right-card {
+	position: absolute;
+	right: 0px;
+	background: #D4D4D4;
+
+	@include wario-transform-style(preserve-3d);
+	@include wario-transform-origin(right, center);
+
+	-webkit-transform:  rotateY( -90deg );
+	-moz-transform:  rotateY( -90deg );
+	-o-transform:  rotateY( -90deg );
+	transform:  rotateY( -90deg );
+}
+
+#game-instance {
+	position: absolute;
+	height: 100%;
+	width: 100%
+}
+
+.game-door {
+	background: #1B83D3;
+}
+
+.door-holder {
+	height : 100%;
+	width: 50%;
+	z-index: 0;
+}
+
+#left-door {
+	position: absolute;
+
+	@include wario-translateX(-100%);
+}
+
+// Sliding in left door
+#left-door.slided {
+	animation: slidein-left-door linear 1s;
+	-webkit-animation: slidein-left-door linear 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+// Sliding out left door
+#left-door.not-slided {
+	animation: slideout-left-door linear 1s;
+	-webkit-animation: slideout-left-door linear 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+
+#right-door {
+	position: absolute;
+	right: 0px;
+	background: #D4D4D4;
+
+	@include wario-translateX(100%);
+}
+
+// Sliding in right door
+#right-door.slided {
+	animation: slidein-right-door linear 1s;
+	-webkit-animation: slidein-right-door linear 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+// Sliding out right door
+#right-door.not-slided {
+	animation: slideout-right-door linear 1s;
+	-webkit-animation: slideout-right-door linear 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+/* #Media Queries
+================================================== */
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {}

@@ -1,0 +1,16 @@
+#scoreScreen {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: red;
+	visibility: hidden;
+}
+
+#scoreScreen div {
+	position: absolute;
+	top: 45%;
+	left: 40%;
+	color: white;
+	font-size: 60px;
+	font-family: Quicksand, sanserif;
+}
