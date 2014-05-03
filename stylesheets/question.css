@@ -1,0 +1,242 @@
+/* ========================================================================
+* Warioware: question.css v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
+
+
+/* Table of Contents
+==================================================
+
+# Fill this in.
+
+================================================== */
+
+#questionPrompt {
+	top:3%;
+	left:2%;
+	font-family: Quicksand, sans-serif;
+	font-size: 2em;
+	border-radius: 2px;
+	box-shadow: 2px 2px 6px #bdc3c7;
+	border-color: gray;
+	background-color: #FFFFFF;
+	width: 93%;
+	height: 31%;	
+	padding-left: 2%;
+	padding-top: 2%;
+	position: absolute;
+}
+
+#questionText {
+	width: 50%;
+}
+
+.shortAnswer {
+	font-size: 2em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 2px;
+	border-style: none;
+	border-color: gray;
+	background-color: #FFFFFF; /* #9a3923; */
+	box-shadow: 2px 2px 6px #bdc3c7;
+	width:20%;
+	height: 45%;
+	position: absolute;
+	color: black;
+	-moz-user-select: -moz-none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select: none; 
+	user-select: none;
+}
+
+.answer {
+	font-size: 2em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 2px;
+	border-style: none;
+	border-color: gray;
+	background-color: #FFFFFF; /* #9a3923; */
+	box-shadow: 2px 2px 6px #bdc3c7;
+	width:20%;
+	height: 45%;
+	position: absolute;
+	color: black;
+	-moz-user-select: -moz-none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select: none; 
+	user-select: none;
+}
+
+/* Icon-sized image or video within the question prompt. */
+.resourceIcon {
+	border-radius: 2px;
+	max-width: 40%;
+	max-height: 100%;
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	margin-right: 0%;
+	margin-bottom: 0%;
+}
+
+/* Icon-sized image or video within the question prompt. */
+.resourceIconVideo {
+	border-radius: 2px;
+	max-width: 40%;
+	max-height: 100%;
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	margin-right: 0%;
+	margin-bottom: 0%;
+}
+
+/* Image that fills the whole answer card. */
+.answerImageFull {
+	max-width:100%; 
+	max-height:100%;
+}
+
+/* Image that fills half the answer card (when there is also text). */
+.answerImageHalf {
+	top: 50%;
+	max-width: 100%;
+	max-height: 50%;
+}	
+
+/* Large image, starts hidden, appears when icon image is clicked. */
+.resourceImageBig {
+	z-index: 1;
+	visibility: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	display:block;
+	position:relative;
+	height: 100%;
+	width: 100%;
+}
+
+/* Additional class for large videos (goes along with resourceImageBig). */
+.videoBig {
+  z-index: 1;
+	visibility: hidden;
+  margin-left: auto;
+	margin-right: auto;
+	display:block;
+	position:relative;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* Container for resources within the question prompt or answer cards. */
+#resourceContainer {
+	height: 100%;
+	width: 100%;
+}
+
+/* For cards containing a short answer blank. */
+.blank {
+	top: 43%;
+	left: 2%;
+	height: 27%;
+	width: 95%;
+	padding: 3%;
+	box-sizing: border-box;
+	background-color: #FFFFFF;
+}
+
+/* Text field in the short answer blank. */
+input[type="text"] {
+	width: 50%;
+	font-size: 25px;
+	font-family: Quicksand, sans-serif;
+}
+
+[answerindex="0"] {
+	top:40%;
+	left:2%;
+}
+[answerindex="1"] {
+	top:40%;
+	left:28%;
+}
+[answerindex="2"] {
+	top:40%;
+	left:53%;
+}
+[answerindex="3"] {
+	top:40%;
+	left:77%;
+}
+
+.ans-selected {
+	background: #FFC956;
+	color: white; !important	
+}
+
+.ans-incorrect {
+	background: #e74c3c;
+	color: white; !important
+}
+
+.ans-correct {
+	background: #2ecc71;
+	color: white; !important
+}
+
+#submit {
+	font-size: 1em;
+	font-family: Quicksand, sans-serif;
+	border-radius: 20px;
+	border-style: none;
+	border-color: gray;
+	background-color: #FFFFFF; /* #9a3923; */
+	box-shadow: 2px 2px 6px #bdc3c7;
+	top: 88%;
+	left: 77%;
+	height: 10%;
+	width: 20%;
+	position: absolute;
+}
+
+.audioImage {
+	background-image: url('../images/audioIcon.png');
+	background-size: 100% 100%;
+	right: 0%;
+	bottom: 0%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	width: 35px;
+	height: 35px;
+	z-index: 0;
+	position: absolute;
+}
+
+.magnifyImage {
+	background-image: url('../images/Magnify_small.png');
+	background-size: 100% 100%;
+	top: 0%;
+	right: 0%;
+	margin-top: 0%;
+	margin-right: 0%;
+	width: 35px;
+	height: 35px;
+	z-index: 1;
+	position: absolute;
+}
+
+#audioImage0 {
+	margin-right: 0.5%;
+	margin-bottom: 0.5%;
+}
+
+#questionScreen {
+	width: 100% !important;
+	height: 100% !important;
+	background-color: #D2EDFF;
+}

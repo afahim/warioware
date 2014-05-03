@@ -1,0 +1,99 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+#player {
+	top:40%;
+	left:2%;
+	width: 4%;
+	height: 11%;
+	background-image: url("img/hunterRight.png");
+	position: absolute;
+}
+#badGuy1 {
+	top: 2%;
+	left: 20%;
+	width: 7%;
+	height: 14%;
+	background-image: url("img/monsterForward.jpg");
+	position: absolute;
+}
+#badGuy2 {
+	top: 85%;
+	left: 45%;
+	width: 7%;
+	height: 14%;
+	background-image: url("img/monsterBackward.jpg");
+	position: absolute;
+}
+#badGuy3 {
+	top: 2%;
+	left: 70%;
+	width: 7%;
+	height: 14%;
+	background-image: url("img/monsterForward.jpg");
+	position: absolute;
+}
+#lineOfSight1 {
+	position: absolute;
+	top: 16%;
+	height: 100%;
+	width: 7%;
+	left: 20%;
+	opacity: 0.4;
+	background-color: yellow;
+}
+#lineOfSight2 {
+	position: absolute;
+	top: 0%;
+	bottom: 15%;
+	width: 7%;
+	left: 45%;
+	opacity: 0.4;
+	background-color: yellow;
+}
+#lineOfSight3 {
+	position: absolute;
+	top: 16%;
+	height: 100%;
+	width: 7%;
+	left: 70%;
+	opacity: 0.4;
+	background-color: yellow;
+}
+
+#finishLine {
+	position: absolute;
+	top: 0%;
+	left: 90%;
+	width: 10%;
+	height: 100%;
+	background-image: url("img/checkerboard.jpg");
+}
+#goLeft {
+	position: absolute;
+	top: 85%;
+	left: 0%;
+	width: 15%;
+	height: 15%;
+	z-index: 2;
+	font-weight: bold;
+	font-size: 1.5em;
+	background-color: red;
+}
+#goRight {
+	position: absolute;
+	top: 85%;
+	left: 85%;
+	width: 15%;
+	height: 15%;
+	z-index: 2;
+	font-weight: bold;
+	font-size: 1.5em;
+	background-color: red;
+}
+
+#levelBackground {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: DarkOliveGreen;  	
+}

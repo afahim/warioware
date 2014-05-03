@@ -1,0 +1,41 @@
+/* ========================================================================
+* Warioware: game1.css v0.1
+* https://github.com/afahim/warioware/
+* ========================================================================
+* Copyright 2014 Techbridgeworld, Inc.
+* Developed for 15-239 (http://www.cs.cmu.edu/~./239/about/)
+* ======================================================================== */
+
+
+/* Table of Contents
+==================================================
+
+#gas-pedal
+#canvas
+
+================================================== */
+
+/*
+#gas-pedal {
+	background: red;
+	position: absolute;
+	top: 4%;
+	left: 3%;
+
+	border-radius: 50%;
+	width: 50px;
+	height: 50px; 
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}*/
+
+#canvas {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
